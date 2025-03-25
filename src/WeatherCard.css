@@ -31,11 +31,14 @@
     align-items: flex-start;
   }
   
-  .location-info h1 {
+  #location-info h1 {
     color: white;
-    font-size: 1.875rem;
+    font-size: 2rem;
     font-weight: bold;
-    margin: 0;
+    margin-top: 2rem;
+    -webkit-mask-image: none;
+    mask-image: none;
+
   }
   
   .location-info p {

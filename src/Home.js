@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import WeatherCard from './WeatherCard';
 import SecondaryInfo from './SecondaryInfo';
@@ -7,15 +7,14 @@ import DailyWeatherCard from './DailyWeatherCard';
 import { Cloudy, Sun, CloudSun, CloudLightning, CloudFog, Haze, CloudSnow, CloudRain } from 'lucide-react';
 import Hourly from './Hourly';
 import NavigationTab from './NavigationTab';
-import route from './assets/route.png';
-import home from './assets/home.png';
-import forecast from './assets/forecast.png';
-import analysis from './assets/analysis.png';
-import calendar from './assets/calendar.png';
-import settings from './assets/settings.png';
-import {Link} from 'react-router-dom';
+import route from './images/route.png';
+import home from './images/homepage.png';
+import forecast from './images/forecast.png';
+import analysis from './images/analysis.png';
+import calendar from './images/calendar.png';
+import settings from './images/settings.png';
 
-import search from './assets/search.png';
+import search from './images/search.png';
 const Home = () => {
     
     const [city, setCity] = useState('');
@@ -184,6 +183,7 @@ const Home = () => {
                         placeholder="Enter city name"
                         value={city}
                         onChange={handleInputChange}
+                        className="search-bar"
                     />
                     <button><img src={search} /></button>
                 </div>  

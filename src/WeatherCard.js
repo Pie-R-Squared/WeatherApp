@@ -1,8 +1,7 @@
 import React from 'react';
 import './WeatherCard.css';
-import purple_background from './assets/purple_background.png';
-import partly_cloudy from './assets/partly_cloudy.png';
-import drops from './assets/drops.png';
+import purple_background from './images/purple_background.png';
+import drops from './images/drops.png';
 const WeatherCard = ({
   location,
   date,
@@ -22,7 +21,7 @@ const WeatherCard = ({
       <div className="content">
         {/* Top section */}
         <div className="top-section">
-          <div className="location-info">
+          <div id="location-info">
             <h1>{location}</h1>
             <p>{date}</p>
           </div>
