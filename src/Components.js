@@ -123,7 +123,7 @@ export default function Weather() {
 
     return (
         <div id="content">
-            <Link to="/Main">
+            <Link to="/Home">
                 <button type="button" id="backButton">&#8592;</button>
             </Link>
             <Warnings>
