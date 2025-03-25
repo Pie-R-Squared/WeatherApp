@@ -1,0 +1,324 @@
+
+/* BACKGROUND STYLING */
+
+body {
+    background-color: #252525;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+}
+
+/* GRID SECTIONS */
+
+#content {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 1rem;
+    grid-template-areas:
+    "warnings warnings warnings warnings"
+    "repair ai temp .";
+    margin-left: auto;
+    margin-right: auto;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: #333;
+    background-image: linear-gradient(to right, #333, #ccc, #333);
+    width: 80%;
+    position: absolute;
+    top: 100px;
+    left: 60px;
+}
+
+/* TITLE */
+
+#warnings {
+    width: 86.875rem;
+    height: 26.25rem;
+    grid-area: warnings;
+}
+
+#warnings-guide {
+    font-family: 'Roboto', sans-serif;
+}
+
+#warnings button, #backButton {
+    position: absolute;
+    background-color: #9E4A9F;
+    border-radius: 6.25rem;
+    border: none;
+    color: #fff;
+    transition: filter 0.3s ease-in-out;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+#warnings button {
+    top: 360px;
+    left: 1150px;
+    padding: 0.625rem 1.5rem;
+}
+
+#backButton {
+    top: 20px;
+    left: 20px;
+    padding: 0.25rem 1rem;
+}
+
+#warnings button:hover, #backButton:hover {
+    background-color: #7D3A7D;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+}
+
+#warning-data {
+    display: flex;
+}
+
+.centred {
+    text-align: center;
+}
+
+h1 {
+    font-weight: 700;
+    font-size: 5rem;
+    color: #d1d1d1;
+    -webkit-mask-image: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+    mask-image: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+    position: absolute;
+    top: 20px;
+    left: 100px;
+}
+
+h2 {
+    font-weight: 700;
+    position: absolute;
+    top: 50px;
+    left: 160px;
+    color: #d1d1d1;
+}
+
+/* UTILITY SECTIONS */
+
+.utility {
+    width: 405px;
+    height: 500px;
+    border-radius: 60px;
+    background-image: url("images/utility_rect.png");
+}
+
+#repair {
+    grid-area: repair;
+    position: relative;
+}
+
+#ai {
+    grid-area: ai;
+    position: relative;
+}
+
+#temp {
+    grid-area: temp;
+    position: relative;
+}
+
+/* REPAIR PANEL */
+
+#repair-search {
+    position: absolute;
+    width: 196px;
+    height: 46px;
+    top: 140px;
+    left: 180px;
+    border-radius: 60px;
+    background-image: url("images/repair_search_rect.png");
+    z-index: 2;
+}
+
+input {
+    border: none;
+    background: transparent;
+    outline: none;
+    text-align: center;
+    vertical-align: middle;
+    margin: 0.5rem;
+    padding: 0.5rem;
+    color: #d1d1d1;
+}
+
+.image-panel {
+    width: 355px;
+    height: 448px;
+}
+
+#repair-panel {
+    position: absolute;
+    width: 290px;
+    height: 255px;
+    top: 180px;
+    left: 50px;
+    border-radius: 30px;    
+    background-image: url("images/repair_rect.svg");
+}
+
+#repair img {
+    position: absolute;
+    top: 10px;
+    left: 8px;
+}
+
+#repair h3 {
+    position: absolute;
+    color: #d1d1d1;
+    top: 50px;
+    left: 65px;
+}
+
+.custom-bullets {
+    position: absolute;
+    top: 80px;
+    left: 60px;
+    list-style-type: none;
+    padding-left: 15px;
+    color: #d1d1d1;
+}
+
+.custom-bullets li::before {
+    content: "•";
+    color: #9E4A9F;
+    font-size: 30px;
+    margin-right: 10px;
+}
+
+/* AI PANEL */
+
+#ai-search {
+    position: absolute;
+    width: 339px;
+    height: 70px;
+    top: 400px;
+    left: 55px;
+    border-radius: 60px;    
+    background-image: url("images/ai_search_rect.png");
+}
+
+#ai img {
+    position: absolute;
+    top: 25px;
+    left: 15px;
+}
+
+#ai input {
+    position: absolute;
+    top: 12px;
+    left: 30px;
+    width: 80%;
+}
+
+.text-panel {
+    height: 200px;
+    margin: 10px;
+    padding: 10px;
+    color: #d1d1d1;
+}
+
+span {
+    color: #9E4A9F;
+}
+
+/* TEMPERATURE ICON */
+
+#temp-icon {
+    position: absolute;
+    width: 300px;
+    height: 500px;
+    top: 550px;
+    left: 1280px;
+    background-image: url("images/temp_icon.png");
+    background-repeat: no-repeat;
+}
+
+/* TODAY'S TEMPERATURE PANEL */
+
+#temp h2 {
+    left: 110px;
+}
+
+#temp h1 {
+    top: 60px;
+    left: 80px;
+    font-size: 7rem;
+    color: #9E4A9F;
+    -webkit-mask-image: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+    mask-image: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+}
+
+#temp p {
+    top: 150px;
+    left: 80px;
+    font-size: 1.5rem;
+    color: #d1d1d1;
+}
+
+/* RESPONSIVE STYLING */
+
+@media (max-width: 1200px) {
+    #content {
+        transform: scale(0.7);
+        transform-origin: top left;
+    }
+}
+
+@media (max-width: 1080px) {
+    #content {
+        transform: scale(0.5);
+        transform-origin: top left;
+    }
+}
+
+@media (max-width: 768px) {
+    #content {
+        grid-template-columns: 1fr;
+        grid-gap: 0;
+        grid-template-areas:
+        "warnings"
+        "repair"
+        "ai"
+        "temp";
+        transform: scale(0.8);
+    }
+
+    #warnings {
+        background-image: url("images/utility_rect.png");
+        width: 450px;
+        height: 500px;
+    }
+
+    #warnings img {
+        display: none;
+    }
+
+    #warnings .image-panel, #warnings .text-panel {
+        transform: scale(0.8);
+    }
+
+    .utility {
+        margin: 0 auto;
+    }
+
+    h1 {
+        font-size: 3rem;
+        top: 40px;
+        left: 120px;
+    }
+
+    #temp-icon {
+        position: absolute;
+        width: 300px;
+        height: 500px;
+        top: 2000px;
+        left: 120px;
+        background-image: url("images/temp_icon.png");
+        background-repeat: no-repeat;
+    }
+}
