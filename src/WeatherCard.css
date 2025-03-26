@@ -36,8 +36,8 @@
     font-size: 2rem;
     font-weight: bold;
     margin-top: 2rem;
-    -webkit-mask-image: none;
-    mask-image: none;
+    /* -webkit-mask-image: none;
+    mask-image: none; */
 
   }
   
