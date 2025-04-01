@@ -1,7 +1,9 @@
 import React from 'react';
-import './WeatherCard.css';
+import './CurrentWeatherCard.css';
 import purple_background from './images/purple_background.png';
 import drops from './images/drops.png';
+
+
 const WeatherCard = ({
   location,
   date,
@@ -32,9 +34,9 @@ const WeatherCard = ({
 
         {/* Middle section */}
         <div className="middle-section">
-          <div id="current-weather-icon">
-            {icon}
-          </div>
+         
+          <img src={icon} alt="Weather Icon" className="current-weather-icon" />
+          
           <div className="temperature">
             {temperature}<span>°</span>
           </div>

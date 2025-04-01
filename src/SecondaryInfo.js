@@ -1,8 +1,10 @@
 import React from "react";
 import "./SecondaryInfo.css";
 
-
-export const SecondaryInfo = (props) => {
+const SecondaryInfo = (props) => {
+  /*threshold for high wind*/
+  const HIGH_WIND_THRESHOLD = 20;
+  const isHighWind = props.windspeed >= HIGH_WIND_THRESHOLD;
   return (
     <div className="secondary-box">
       <div className="secondary-info">
@@ -14,13 +16,18 @@ export const SecondaryInfo = (props) => {
               src="https://c.animaapp.com/XRcEjpxL/img/rectangle-7.png"
             />
 
-            <div className="secondary-weather-icon">
-              {props.icon}
-            </div>
-
-            <div className="secondary-text-wrapper">{props.temp}</div>
+            
+            <img
+              className="secondary-weather-icon"  
+              alt="Weather Icon"
+              src={props.icon}
+            />
+            
+               { /*display temp*/}
+            <div className="secondary-text-wrapper">{props.temp}°</div>
           </div>
 
+          { /*sunset and sunrise section*/ }
           <div className="sunset">
             <div className="div">Sunset</div>
 
@@ -45,6 +52,8 @@ export const SecondaryInfo = (props) => {
             />
           </div>
 
+
+          { /*humidity section*/ }
           <div className="secondary-humidity">
             <div className="secondary-overlap-group-2">
               <img
@@ -58,7 +67,7 @@ export const SecondaryInfo = (props) => {
               <div className="secondary-text-wrapper-6">{props.humidity}%</div>
             </div>
           </div>
-
+          {/*windspeed section*/}
           <div className="wind-speed">
             <img
               className="wind-svgrepo-com"
@@ -73,6 +82,7 @@ export const SecondaryInfo = (props) => {
             </div>
           </div>
 
+          {/*percipitation section*/}
           <div className="secondary-percipitation">
             <img
               className="rain-svgrepo-com"
@@ -87,6 +97,8 @@ export const SecondaryInfo = (props) => {
             </div>
           </div>
 
+
+          {/*pressure section*/}
           <div className="secondary-pressure">
             <img
               className="pressure-svgrepo-com"
@@ -99,6 +111,8 @@ export const SecondaryInfo = (props) => {
             <div className="secondary-text-wrapper-11">{props.pressure}hPa</div>
           </div>
 
+
+          {/*visibility section*/  }
           <div className="secondary-visibility">
             <img
               className="secondary-visibility-eye"
@@ -111,6 +125,8 @@ export const SecondaryInfo = (props) => {
             <div className="secondary-text-wrapper-13">{props.visibility}m</div>
           </div>
 
+
+          {/*uv index section*/}
           <div className="secondary-UV">
             <img
               className="sun-svgrepo-com"
@@ -123,25 +139,30 @@ export const SecondaryInfo = (props) => {
             <div className="secondary-text-wrapper-15">{props.visibility}</div>
           </div>
 
+
+
+          {/* Wind Warning Section */}  
           <div className="secondary-warning">
             <div className="secondary-overlap-4">
-              <div className="secondary-text-wrapper-16">Pedal with caution</div>
-
-              <div className="secondary-text-wrapper-17">Strong Wind Ahead!</div>
-
+              {isHighWind && (
+                <>
+                  <div className="secondary-text-wrapper-16">Pedal with caution</div>
+                  <div className="secondary-text-wrapper-17">Strong Wind Ahead!</div>
+                  <img
+                    className="secondary-img"
+                    alt="Rectangle"
+                    src="https://c.animaapp.com/XRcEjpxL/img/rectangle-10.png"
+                  />
+                  <div className="secondary-text-wrapper-18">WARNING</div>
+                </>
+              )}
+              
+              {/* Bike image remains no matter the wind speed */}
               <img
                 className="secondary-woman-biking-medium"
-                alt="Woman biking medium"
+                alt="Woman biking"
                 src="https://c.animaapp.com/XRcEjpxL/img/woman-biking-medium-light-skin-tone-svgrepo-com-1.png"
               />
-
-              <img
-                className="secondary-img"
-                alt="Rectangle"
-                src="https://c.animaapp.com/XRcEjpxL/img/rectangle-10.png"
-              />
-
-              <div className="secondary-text-wrapper-18">WARNING</div>
             </div>
           </div>
         </div>

@@ -7,25 +7,16 @@ const Hourly = ({ data }) => {
   // Display up to 24 hours of data starting from current hour
   const displayData = data.slice(0, 24);
 
-  useEffect(() => {
-    // Add animation when component mounts
-    if (svgRef.current) {
-      svgRef.current.classList.add('animate-draw-line');
-    }
-    return () => {
-      if (svgRef.current) {
-        svgRef.current.classList.remove('animate-draw-line');
-      }
-    };
-  }, [data]); 
+ 
 
   // Calculate the highest and lowest temperatures for scaling
   const validTemps = displayData.map(hour => Number(hour.temp)).filter(temp => !isNaN(temp));
   const maxTemp = Math.max(...validTemps);
   const minTemp = Math.min(...validTemps);
 
-  const range = maxTemp - minTemp + 8; // Add padding
+  const range = maxTemp - minTemp + 8; // Add padding to temperature range
 
+  // Function to calculate Y position based on temperature
   const getYPosition = (temp) => {
     return 80 - ((temp - minTemp + 4) / range) * 60; // Normalize Y position
   };
@@ -41,6 +32,8 @@ const Hourly = ({ data }) => {
     }).join(' ');
   };
 
+
+  // convert 24 hour time to the 12 hour formate with am/pm
   const getHourDisplay = (hour) => {
     const time = new Date(`2023-01-01T${hour}`);
     const h = time.getHours();
@@ -82,7 +75,7 @@ const Hourly = ({ data }) => {
                   left: `${i * (100 / (displayData.length - 1))}%`,
                   top: `${getYPosition(hour.temp)}%`,
                 }}
-                title={`${hour.temp}°C | ${hour.weather} | ${getHourDisplay(hour.time)}`} // Basic tooltip
+                title={`${hour.temp}°C | ${hour.description} | ${getHourDisplay(hour.time)}`} // Basic tooltip
               />
             ))}
           </div>
@@ -90,7 +83,7 @@ const Hourly = ({ data }) => {
           {/* Temperature Labels */}
           <div className="temperature-labels">
             {displayData.map((hour, i) => (
-              <div key={i} className="temp-label" style={{left: `${i * (75 / (displayData.length - 1))}%`
+              <div key={i} className="temp-label" style={{left: `${i * (77 / (displayData.length - 1))}%`
             }}>
                 {hour.temp}°
               </div>
@@ -100,7 +93,7 @@ const Hourly = ({ data }) => {
           {/* Time Labels */}
           <div className="time-labels">
             {displayData.map((hour, i) => (
-              <div key={i} className="time-label" style={{left: `${i * (75 / (displayData.length - 1))}%`}}>
+              <div key={i} className="time-label" style={{left: `${i * (77 / (displayData.length - 1))}%`}}>
                 {getHourDisplay(hour.time) }
               </div>
             ))}

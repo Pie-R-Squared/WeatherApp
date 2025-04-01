@@ -2,17 +2,18 @@
 
 .weather-card {
     width: 100%;
-    max-width: 400px;
-    margin: 0 auto;
+    margin-left: 2rem;
     position: relative;
+    margin-top: -1rem;
   }
   
   .background-image {
-    width: 31.4375rem;
-    height: 19.78125rem;
+    width: 100%;
     flex-shrink: 0;
     height: auto;
-    
+    margin-bottom: 0em;
+    border-radius: 2.25rem;
+    margin-left: 1.1rem;
     box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0);
   }
   
@@ -36,14 +37,14 @@
     font-size: 2rem;
     font-weight: bold;
     margin-top: 2rem;
-    /* -webkit-mask-image: none;
-    mask-image: none; */
+    mask-image: none;
 
   }
   
   .location-info p {
     color: rgba(255, 255, 255, 0.9);
     margin: 4px 0 0;
+    
   }
   
   .condition p {
@@ -96,12 +97,12 @@
   }
   
   .drops img {
-    width: 1.9375rem;
-    height: 1.9375rem;
+    width: 1rem;
+    height: 1rem;
     flex-shrink: 0;
     object-fit: contain;
     margin-left: 12rem;
-    margin-top :0rem;
+    margin-bottom : -1em;
   }
   
   .pressure-info {

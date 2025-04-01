@@ -1,10 +1,11 @@
 import React from 'react';
 
-function DailyWeatherCard({date, icon, temp, description}){
+const DailyWeatherCard = ({date, icon, temp, description}) => {
+    console.log(icon);
     return(
         <div className ='daily-weather-card'>
             <p className = 'date'>{date}</p>
-            <div className ='daily-weather-icon'>{icon}</div>
+            <img src = {icon} className='daily-weather-icon' alt='daily-weather'/>
             <p className='daily-weather-description'>{description}</p>
             <p className = 'temp'>{temp}°</p>
             
