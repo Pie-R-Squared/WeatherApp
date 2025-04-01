@@ -1,0 +1,148 @@
+
+
+/* Style for hourly weather info on the first page */
+
+/*container height and width*/
+.box {
+  height: 18rem;  
+  width: 32rem;  
+  padding: 1rem;
+  margin-top: -1.5rem;
+}
+
+.box .hourly {
+  height: 18rem;  
+  left: 0;
+  top: 0;
+  width: 34rem;
+}
+
+
+/*background for hourly componenet*/
+.box .overlap-group {
+  background-image: url(https://c.animaapp.com/OBXqmX1E/img/rectangle-9.svg);
+  background-size: 100% 100%;
+  height: 22rem;  
+  left: -2.5rem;
+  margin: 1.8rem;
+  position: relative;
+  top: -2.3rem;
+  width: 34.5rem;
+  background: #333;
+  border-radius: 3.5rem;
+}
+
+.box .overlap {
+  height: 12.5rem;
+  left: 4.2rem;
+  position: absolute;
+  top: 6.5rem;
+  width: 27rem;
+}
+
+
+/*grid lines for time*/
+.box .line {
+  height: 12.5rem;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 0.07rem;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+
+/*positioning for grid lines*/
+.box .line-1 { left: 0.12rem; }
+.box .line-2 { left: 2.6rem; }
+.box .line-3 { left: 5rem; }
+.box .line-4 { left: 7.5rem; }
+.box .line-5 { left: 9.9rem; }
+.box .line-6 { left: 12.4rem; }
+.box .line-7 { left: 14.8rem; }
+.box .line-8 { left: 17.3rem; }
+.box .line-9 { left: 19.7rem; }
+.box .line-10 { left: 22.2rem; }
+.box .line-11 { left: 24.6rem; }
+.box .line-12 { left: 27.1rem; }
+
+
+/*container for temperature graph*/
+.box .vector-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+
+
+.box .ellipse-point {
+  background-color: #d9d9d9;
+  border-radius: 0.16rem;
+  height: 0.32rem;
+  width: 0.32rem;
+  margin-left: 0.095rem;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+
+/*hover for temperature points*/
+.box .ellipse-point:hover {
+  background-color: #4dabf7;
+}
+
+/*labels for temperature values*/
+.box .temperature-labels {
+  position: absolute;
+  top: 5.7rem;
+  left: 3.9rem;
+  width: 100%;
+}
+
+.box .temp-label {
+  position: absolute;
+  color: #ffffff;
+  font-family: "Inter", Helvetica;
+  font-size: 0.78rem;
+  padding: 0rem;
+  font-weight: 400;
+  transform: translate(20%, -100%);
+}
+
+/*labels for time values*/
+.box .time-labels {
+  position: absolute;
+  bottom: 1.8rem;
+  left: 3.8rem;
+  width: 100%;
+}
+
+.box .time-label {
+  position: absolute;
+  color: #ffffff;
+  font-family: "Inter", Helvetica;
+  font-size: 0.72rem;
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+
+/*header text for the section*/
+.box .text-wrapper-15 {
+  color: #ffffff;
+  font-family: "Inter", Helvetica;
+  font-size: 1.15rem;
+  font-weight: 700;
+  left: 4rem;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 1.8rem;
+  white-space: nowrap;
+}
+
