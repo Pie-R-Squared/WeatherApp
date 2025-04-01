@@ -1,20 +1,37 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { ThemeContext } from ".//theme";
 import { Link } from "react-router-dom";
 import axios from 'axios';
 import weatherWarning from "../src/images/title_rect.png";
+import weatherWarningLight from "../src/images/title_rect_light.png";
 import windSpeed from "../src/images/heavy_wind.svg";
 import visibility from "../src/images/visibility_eye.svg";
-import searchIcon from "../src/images/search_icon.png";
 import BikerIcon from "../src/images/biker.svg";
 import AiIcon from "../src/images/weather_ai_icon.svg";
 import CurrentWeatherIcon from "../src/images/partly_cloudy.svg";
 import safetyGuide from "../src/images/safety_guide.png";
+import WeatherAI from "./WeatherAI";
+import route from './images/route.png';
+import home from './images/home.png';
+import forecast from './images/forecast.png';
+import analysis from './images/analysis.png';
+import calendar from './images/calendar.png';
+import settings from './images/settings.png';
 
+/*
+    Warnings component which contains the title,
+    weather warnings, windspeed and visibility
+*/
 function Warnings({children}) {
+    const { theme } = useContext(ThemeContext);
+
     return (
         <div id="warnings">
             <h1>Weather warnings</h1>
-            <img src={weatherWarning} alt="weather-warning"/>
+            <img
+                src={theme === "dark" ? weatherWarning : weatherWarningLight} 
+                alt="weather-warning"
+            />
             <div id="warning-data">
                 {children}
             </div>
@@ -22,9 +39,47 @@ function Warnings({children}) {
     );
 }
 
+/*
+    Navbar component for switching between pages
+*/
+function NavigationTab({id, icon, label}){
+    return(
+        <div id={id} className="navigation-item">
+            <Link to={`/${id}`}>
+                <button><img src={icon} alt={label}/></button>
+                <p>{label}</p>
+            </Link>
+        </div>
+    )
+}
+
+/*
+    Utility component which generalises a container
+    for the three utilities: repair, ai and today's
+    temperature
+*/
 function Utility({value, children}) {
     return (
         <div id={value} className="utility">{children}</div>
+    );
+}
+
+/*
+    Toggle that allows switching between light
+    and dark mode
+*/
+function ThemeToggle() {
+    const { theme, toggle } = useContext(ThemeContext);
+
+    return (
+        <label className="switch">
+            <input type="checkbox" checked={theme === "light"} onChange={toggle} />
+            <span className="slider"></span>
+            <p>
+                {((localStorage.getItem("theme") || "dark").charAt(0).toUpperCase() + 
+                (localStorage.getItem("theme") || "dark").slice(1)) + " Mode"}
+            </p>
+        </label>
     );
 }
 
@@ -40,6 +95,11 @@ function Subheading({text}) {
     );
 }
 
+/*
+    Container for images, which may be provided
+    with a top and left value to absolutely position
+    the image
+*/
 function ImagePanel({src, top, left}) {
     return (
         <div className="image-panel"
@@ -67,6 +127,11 @@ function TempIcon() {
     );
 }
 
+/*
+    Container for text, which may be provided
+    with a top and left value to absolutely position
+    the text, as for ImagePanel
+*/
 function TextPanel({top, left, className, width, children}) {
     return (
         <div className={`text-panel ${className || ""}`}
@@ -83,12 +148,24 @@ function TextPanel({top, left, className, width, children}) {
     );
 }
 
+/*
+    The Weather component which contains all the React
+    components and exports them to App.js
+
+    Contains:
+        - Weather Warnings, windspeed and visibility
+        - Safety guide for riding in dangerous weather
+        - The three nearest repair shops to a given poscode
+        - A cyclist-tailored weather AI that accepts prompts
+        - Today's temperature and what it feels like
+*/
 export default function Weather() {
 
     const [aiSearch, setAiSearch] = useState("");
+    const [triggerAI, setTriggerAI] = useState(false);
 
     const [weatherData, setWeatherData] = useState('');
-    const API_KEY = ""; /* Need to get from Google Cloud Console */
+    const API_KEY = "AIzaSyCGzyUl2BVFjyZp67Z4OeFsomXHQzKIKM8";
 
     const [postcode, setPostcode] = useState("");
     const [repairShops, setRepairShops] = useState([]);
@@ -101,8 +178,14 @@ export default function Weather() {
     }
 
     function handleEnterPressed(e) {
-        if (e.key === "Enter") {
+        if (e.key === "Enter" && postcode.trim() !== "") {
             fetchRepairShops();
+        }
+    }
+
+    function handleAiEnterPressed(e) {
+        if (e.key === "Enter" && aiSearch.trim() !== "") {
+            setTriggerAI(true);
         }
     }
 
@@ -112,36 +195,12 @@ export default function Weather() {
         }
 
         try {
-            const geoRes = await fetch(
-                `https://maps.googleapis.com/maps/api/geocode/json?address=${postcode}&key=${API_KEY}`
-            );
-            const geoData = await geoRes.json();
+            const response = await axios.get(`http://localhost:3001/fetchRepairShops?postcode=${postcode}`);
+            const shops = response.data.shops;
 
-            if (geoData.status !== "OK" || geoData.results.length === 0) {
-                alert("Invalid postcode");
-                return;
-            }
+            console.log('Response from backend:', shops);
         
-            const { lat, lon } = geoData.results[0].geometry.location;
-
-            const placesRes = await fetch(
-                `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${lat},${lon}&radius=5000&type=bicycle_store&key=${API_KEY}`
-            );
-            const placesData = await placesRes.json();
-        
-            if (placesData.status !== "OK" || placesData.results.length === 0) {
-                alert("No bicycle repair shops found nearby.");
-                return;
-            }
-
-            const shopsWithDistance = placesData.results.map((shop) => {
-            const distance = getDistance(lat, lon, shop.geometry.location.lat, shop.geometry.location.lng);
-                return { name: shop.name, distance };
-            });
-        
-            const nearestShops = shopsWithDistance.sort((a, b) => a.distance - b.distance).slice(0, 3);
-        
-            setRepairShops(nearestShops);
+            setRepairShops(shops);
         } catch (error) {
             console.error("Error while fetching location data:", error);
         }
@@ -161,6 +220,10 @@ export default function Weather() {
         return R * c;
     }
 
+    /*
+        Fetch user's exact location upon loading the page
+        Retrieves the latitude and longitude
+    */
     /*useEffect(() => {
         if ("geolocation" in navigator) {
             navigator.geolocation.getCurrentPosition(
@@ -172,7 +235,11 @@ export default function Weather() {
         }
     }, []);
 
-    const fetchLocationWeather = async (lat, lon) => {
+    /*
+        Fetches the weather data based on the user's location
+        Displays an error if the API call fails
+    */
+    /*const fetchLocationWeather = async (lat, lon) => {
         try {
             const response = await axios.get(
                 `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${"9b27abfa8280abdbc5b8674b42e31f07"}`
@@ -199,15 +266,16 @@ export default function Weather() {
     }
 
     return (
-        <div id='forecast-body'>
-            <div id="content">
+        <div id="forecast-body">
 
-                <Link to="/Home">
-                    <button type="button" id="backButton">&#8592;</button>
-                </Link>
-                <Warnings>
-                    <ImagePanel src={windSpeed} top={250} left={145}/>
-                    <TextPanel top={280} left={0} className="centred">
+        <div id="content">
+
+            <ThemeToggle />
+
+            <Warnings>
+                <div className="warning-data-figures">
+                    <ImagePanel src={windSpeed}/>
+                    <TextPanel width={150} className="centred">
                         <p>{/*weatherData ? (
                             `${weatherData.wind?.speed ?? "N/A"} km/h`
                         ) : (
@@ -222,101 +290,123 @@ export default function Weather() {
                         </p>
                         <h3>Visibility</h3>
                     </TextPanel>
-                    <TextPanel top={250} left={400} width={600}>
-                
-                        <h3>Consider travelling before 7pm:</h3>
-                        <h3> - 
-                            <span> Strong winds</span> and
-                            <span> poor visibility</span> will be common after 7pm
-                        </h3>
-                        <h3> - 
-                            <span> Heavy rain</span> may follow (60% chance)
-                        </h3>
-                    </TextPanel>
-
-                    <TextPanel top={280} left={1000} width={250}>
-                        Due to severe weather warnings, please see our guide on how to ride safely, below:
+                </div>
+                {/* weatherData && (*/
+                <TextPanel width={600}>
+                    {/*<h3>Considerations:</h3>
+                    (weatherData.wind.speed > 6 || weatherData.visibility / 1000 < 5 || weatherData.rain?.["1h"]) ? (
+                        <>
+                            {weatherData.wind.speed > 6 && <h3> - <span>Strong winds</span> detected</h3>}
+                            {weatherData.visibility / 1000 < 5 && <h3> - <span>Poor visibility</span> conditions</h3>}
+                            {weatherData.rain?.["1h"] && (
+                                <h3> - <span>Heavy rain</span> expected ({Math.round(weatherData.rain["1h"] * 100)}% chance)</h3>
+                            )}
+                        </>
+                    ) : (
+                        <>
+                            <h3>No severe weather warnings</h3>
+                            <h3> - <span>Low wind</span> and <span>good visibility</span></h3>
+                            <h3> - <span>{weatherData.rain?.["1h"] ? `${Math.round(weatherData.rain["1h"] * 100)}% chance of light rain` : "No rain expected"}</span></h3>
+                        </>
+                    )*/}
+                    <h3>Consider travelling before 7pm:</h3>
+                    <h3> - 
+                        <span> Strong winds</span> and
+                        <span> poor visibility</span> will be common after 7pm
+                    </h3>
+                    <h3> - 
+                        <span> Heavy rain</span> may follow (60% chance)
+                    </h3>
+                </TextPanel>
+                /*)*/}
+                <div className="warning-data-figures">
+                    <TextPanel width={250}>
+                        In case of severe weather warnings, please see our guide on how to ride safely, below:
                     </TextPanel>
                     <a href={safetyGuide} download>
                         <button type="button">Stay Safe</button>
                     </a>
+                </div>
+            </Warnings>
 
-                    <div className="warning-data-figures">
-                        <TextPanel width={250}>
-                            Due to severe weather warnings, please see our guide on how to ride safely, below:
-                        </TextPanel>
-                        <a href={safetyGuide} download>
-                            <button type="button">Stay Safe</button>
-                        </a>
-                    </div>
-                </Warnings>
-
-                {/* Utilities
-                    - Repair shops near the given postcode
-                    - Weather AI with a search bar
-                    - Today's temperature and feels like
-                */}
-
-                <Utility value="repair">
-                    <Subheading text="Bike Repair"/>
-                    <hr/>
-                    <Searchbar value="repair-search">
-                        <img src={searchIcon} alt="search icon" width="25px"/>
-
-
-                        <input type="text" placeholder="Insert postcode" value={postcode} onChange={handlePostcodeSearchChange} onKeyDown={handleEnterPressed}/>
-
-                    </Searchbar>
-                    <ImagePanel src={BikerIcon} top={120} left={80}/>
-                    <RepairPanel>
-                        <h3>Repair shops near you</h3>
-                        <ul className="custom-bullets">
-                        {repairShops && repairShops.length > 0 ? (
-                            repairShops.slice(0, 3).map((shop, index) => (
-                                <li key={index}>
-                                {shop.name} <span>{shop.distance.toFixed(2)} km</span>
-                                </li>
-                            ))
-                        ) : (
-                            <>
-                            <li>Triton Cycles <span>1km</span></li>
-                            <li>The Bike Shop <span>2km</span></li>
-                            <li>Rayan's Cycles <span>4km</span></li>
-                            </>
-                        )}
-                        </ul>
-                    </RepairPanel>
-                </Utility>
-                <Utility value="ai">
-                    <Subheading text="Weather AI"/>
-                    <hr/>
-                    <TextPanel top={120} left={50}>
-                        <p>
-                            Welcome to your personal <span>Weather AI</span>!
-                        </p>
-                        <p>
-                            You can ask things like:
-                            <span> how warm should I dress today?</span> or
-                            <span> Is it safe to be cycling tonight?</span>
-                        </p>
-                    </TextPanel>
-                    <ImagePanel src={AiIcon} top={250} left={160}/>
-                    <Searchbar value="ai-search">
-                        <img src={searchIcon} alt="search icon" width="25px"/>
-                        <input type="text" placeholder="Do I need to wear a raincoat today?" value={aiSearch} onChange={handleAiSearchChange}/>
-                    </Searchbar>
-                </Utility>
-                <Utility value="temp">
-                    <Subheading text="Today's Temperature"/>
-                    <hr/>
-                    <h1>25°</h1>
-                    <TextPanel top={190} left={200}>
-                        <p>Feels like <span>15°</span></p>
-                    </TextPanel>
-                    <ImagePanel src={CurrentWeatherIcon} top={250} left={80}/>
-                </Utility>
-                <TempIcon />
+            <div className="navigation-tab">
+                {[
+                { id: 'home', icon: home, label: 'Home' },
+                { id: 'weather', icon: forecast, label: 'Weather' },
+                { id: 'route', icon: route, label: 'Route' },
+                { id: 'analysis', icon: analysis, label: 'Analysis' },
+                { id: 'calendar', icon: calendar, label: 'Calendar' },
+                { id: 'settings', icon: settings, label: 'Settings' },
+                ].map((tab) => (
+                <NavigationTab key={tab.id} id={tab.id} icon={tab.icon} label={tab.label} />
+                ))}
             </div>
+
+            <Utility value="repair">
+                <Subheading text="Bike Repair"/>
+                <hr/>
+                <Searchbar value="repair-search">
+                    <img className="search-icon" alt="search icon" width="25px"/>
+                    <input type="text" placeholder="Insert postcode" value={postcode} onChange={handlePostcodeSearchChange} onKeyDown={handleEnterPressed}/>
+                </Searchbar>
+                <ImagePanel src={BikerIcon} top={120} left={80}/>
+                <RepairPanel>
+                    <h3>Repair shops near you</h3>
+                    <ul className="custom-bullets">
+                    {repairShops && repairShops.length > 0 ? (
+                        repairShops.slice(0, 3).map((shop, index) => (
+                            <li key={index}>
+                            {shop.name} <span>{shop.distance.toFixed(2)} km</span>
+                            </li>
+                        ))
+                    ) : (
+                        <>
+                        <li>No repair shops found</li>
+                        </>
+                    )}
+                    </ul>
+                </RepairPanel>
+            </Utility>
+            <Utility value="ai">
+                <Subheading text="Weather AI"/>
+                <hr/>
+                <TextPanel top={120} left={50}>
+                    <WeatherAI prompt={aiSearch} weatherData={weatherData} triggerAI={triggerAI} />
+                    {/*<p>
+                        Welcome to your personal <span>Weather AI</span>!
+                    </p>
+                    <p>
+                        You can ask things like:
+                        <span> how warm should I dress today?</span> or
+                        <span> Is it safe to be cycling tonight?</span>
+                    </p>*/}
+                </TextPanel>
+                <ImagePanel src={AiIcon} top={250} left={160}/>
+                <Searchbar value="ai-search">
+                    <img className="search-icon" alt="search icon" width="25px"/>
+                    <input type="text" placeholder="Do I need to wear a raincoat today?" value={aiSearch} onChange={handleAiSearchChange} onKeyDown={handleAiEnterPressed}/>
+                </Searchbar>
+            </Utility>
+            <Utility value="temp">
+                <Subheading text="Today's Temperature"/>
+                <hr/>
+                <h1>{/* weatherData ? (
+                    `${weatherData.main.temp.toFixed(1)}°`
+                ) : (
+                    "Loading weather data..."
+                )*/}25°</h1>
+                <TextPanel top={190} left={200}>
+                    <p>Feels like <span>
+                        { /*weatherData ? (
+                            `${weatherData.main.feels_like.toFixed(1)}°`
+                        ) : (
+                            "Loading weather data..."
+                        )*/}15°</span></p>
+                </TextPanel>
+                <ImagePanel src={CurrentWeatherIcon} top={250} left={80}/>
+            </Utility>
+            <TempIcon />
         </div>
+    </div>
     );
 }
