@@ -1,0 +1,480 @@
+/*style for the secondary weather information on the first page*/
+
+.secondary-box {
+    height: 20rem;
+    width: 40rem;
+    margin-right: 2rem;
+  
+    
+  }
+  
+  .secondary-box .secondary-info {
+    height: 20rem;
+    left: 0;
+    top: 0;
+    width: 40rem;
+  }
+  
+  .secondary-box .secondary-overlap {
+    background-color: #333333;
+    border-radius: 2.75rem;
+    box-shadow: 0 0.125rem 2.5rem rgba(0, 0, 0, 0.25);
+    height: 20rem;
+    position: relative;
+    width: 40rem;
+  }
+  
+  .secondary-box .secondary-overlap-group {
+    height: 12rem;
+    left: 0.05rem;
+    position: absolute;
+    top: 0.05rem;
+    width: 24rem;
+  }
+  
+  .secondary-box .secondary-rectangle {
+    height: 10rem;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 22rem;
+  }
+  
+  .secondary-box .secondary-weather-icon{
+    height: 10.5rem;
+    left: 14rem;
+    position: absolute;
+    top: 1rem;
+    width: 10.5rem;
+  }
+  
+  .secondary-box .secondary-text-wrapper {
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent;
+    background: linear-gradient(
+      82deg,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(153, 153, 153, 0) 100%
+    );
+    background-clip: text;
+    color: transparent;
+    font-family: "Inter", Helvetica;
+    font-size: 5.5rem;
+    font-weight: 700;
+    left: 3.5rem;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 0.05rem;
+  }
+  
+  .secondary-box .sunset {
+    height: 2.8rem;
+    left: 2rem;
+    position: absolute;
+    top: 15rem;
+    width: 8rem;
+  }
+  
+  .secondary-box .div {
+    color: #ffffff;
+    font-family: "Inter", Helvetica;
+    font-size: 1.1rem;
+    font-weight: 400;
+    left: 3.7rem;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 0;
+  }
+  
+  .secondary-box .secondary-text-wrapper-2 {
+    color: #ffffff;
+    font-family: "Inter", Helvetica;
+    font-size: 0.7rem;
+    font-weight: 700;
+    left: 4rem;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 1.5rem;
+    white-space: nowrap;
+  }
+  
+  .secondary-box .sunset-svgrepo-com {
+    height: 2.5rem;
+    left: 0;
+    position: absolute;
+    top: 0.05rem;
+    width: 2.5rem;
+  }
+  
+  .secondary-box .sunrise {
+    height: 2.9rem;
+    left: 1.9rem;
+    position: absolute;
+    top: 11.7rem;
+    width: 8rem;
+  }
+  
+  .secondary-box .secondary-text-wrapper-3 {
+    color: #ffffff;
+    font-family: "Inter", Helvetica;
+    font-size: 1.1rem;
+    font-weight: 400;
+    left: 3.8rem;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 0.1rem;
+  }
+  
+  .secondary-box .secondary-text-wrapper-4 {
+    color: #ffffff;
+    font-family: "Inter", Helvetica;
+    font-size: 0.7rem;
+    font-weight: 700;
+    left: 4.2rem;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 1.5rem;
+    white-space: nowrap;
+  }
+  
+  .secondary-box .sunrise-svgrepo-com {
+    height: 2.9rem;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 2.9rem;
+  }
+  
+  .secondary-box .secondary-humidity {
+    height: 4.2rem;
+    left: 26rem;
+    position: absolute;
+    top: 2.5rem;
+    width: 3rem;
+  }
+  
+  .secondary-box .secondary-overlap-group-2 {
+    height: 4.2rem;
+    position: relative;
+    width: 2.8rem;
+  }
+  
+  .secondary-box .humidity-svgrepo-com {
+    height: 2.4rem;
+    left: 0.2rem;
+    position: absolute;
+    top: 0;
+    width: 2.4rem;
+  }
+  
+  .secondary-box .secondary-text-wrapper-5 {
+    color: #ffffff;
+    font-family: "Inter", Helvetica;
+    font-size: 0.65rem;
+    font-weight: 400;
+    left: 0;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 3.4rem;
+  }
+  
+  .secondary-box .secondary-text-wrapper-6 {
+    color: #ffffff;
+    font-family: "Inter", Helvetica;
+    font-size: 0.9rem;
+    font-weight: 600;
+    left: 0.4rem;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 2.4rem;
+    white-space: nowrap;
+  }
+  
+  .secondary-box .wind-speed {
+    height: 4.2rem;
+    left: 26rem;
+    position: absolute;
+    top: 8.6rem;
+    width: 4rem;
+  }
+  
+  .secondary-box .wind-svgrepo-com {
+    height: 2.4rem;
+    left: 0.7rem;
+    position: absolute;
+    top: 0;
+    width: 2.4rem;
+  }
+  
+  .secondary-box .secondary-overlap-2 {
+    height: 1.8rem;
+    left: 0;
+    position: absolute;
+    top: 2.4rem;
+    width: 3.8rem;
+  }
+  
+  .secondary-box .secondary-text-wrapper-7 {
+    color: #ffffff;
+    font-family: "Inter", Helvetica;
+    font-size: 0.65rem;
+    font-weight: 400;
+    left: 0;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 1rem;
+  }
+  
+  .secondary-box .secondary-text-wrapper-8 {
+    color: #ffffff;
+    font-family: "Inter", Helvetica;
+    font-size: 0.9rem;
+    font-weight: 600;
+    left: 0.3rem;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 0;
+    white-space: nowrap;
+  }
+  
+  .secondary-box .secondary-percipitation {
+    height: 4.3rem;
+    left: 25.7rem;
+    position: absolute;
+    top: 13.8rem;
+    width: 4rem;
+  }
+  
+  .secondary-box .rain-svgrepo-com {
+    height: 2.5rem;
+    left: 0.7rem;
+    position: absolute;
+    top: 0;
+    width: 2.5rem;
+  }
+  
+  .secondary-box .secondary-overlap-3 {
+    height: 1.8rem;
+    left: 0;
+    position: absolute;
+    top: 2.5rem;
+    width: 3.9rem;
+  }
+  
+  .secondary-box .secondary-text-wrapper-9 {
+    color: #ffffff;
+    font-family: "Inter", Helvetica;
+    font-size: 0.9rem;
+    font-weight: 600;
+    left: 0.25rem;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 0;
+    white-space: nowrap;
+  }
+  
+  .secondary-box .secondary-pressure {
+    height: 4.5rem;
+    left: 32.5rem;
+    position: absolute;
+    top: 2.3rem;
+    width: 5rem;
+  }
+  
+  .secondary-box .pressure-svgrepo-com {
+    height: 2.4rem;
+    left: 1.2rem;
+    position: absolute;
+    top: 0;
+    width: 2.4rem;
+  }
+  
+  .secondary-box .secondary-text-wrapper-10 {
+    color: #ffffff;
+    font-family: "Inter", Helvetica;
+    font-size: 0.65rem;
+    font-weight: 400;
+    left: 1rem;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 3.7rem;
+  }
+  
+  .secondary-box .secondary-text-wrapper-11 {
+    color: #ffffff;
+    font-family: "Inter", Helvetica;
+    font-size: 0.9rem;
+    font-weight: 600;
+    left: 0;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 2.6rem;
+    white-space: nowrap;
+  }
+  
+  .secondary-box .secondary-visibility {
+    height: 4.3rem;
+    left: 33.5rem;
+    position: absolute;
+    top: 8.5rem;
+    width: 2.8rem;
+  }
+  
+  .secondary-box .secondary-visibility-eye {
+    height: 2.4rem;
+    left: 0.05rem;
+    position: absolute;
+    top: 0;
+    width: 2.4rem;
+  }
+  
+  .secondary-box .secondary-text-wrapper-12 {
+    color: #ffffff;
+    font-family: "Inter", Helvetica;
+    font-size: 0.65rem;
+    font-weight: 400;
+    left: 0;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 3.5rem;
+  }
+  
+  .secondary-box .secondary-text-wrapper-13 {
+    color: #ffffff;
+    font-family: "Inter", Helvetica;
+    font-size: 0.9rem;
+    font-weight: 600;
+    left: 0.3rem;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 2.4rem;
+    white-space: nowrap;
+  }
+  
+  .secondary-box .secondary-UV {
+    height: 4.5rem;
+    left: 33.4rem;
+    position: absolute;
+    top: 13.8rem;
+    width: 2.6rem;
+  }
+  
+  .secondary-box .sun-svgrepo-com {
+    height: 2.4rem;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 2.4rem;
+  }
+  
+  .secondary-box .secondary-text-wrapper-14 {
+    color: #ffffff;
+    font-family: "Inter", Helvetica;
+    font-size: 0.65rem;
+    font-weight: 400;
+    left: 0.7rem;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 3.7rem;
+  }
+  
+  .secondary-box .secondary-text-wrapper-15 {
+    color: #ffffff;
+    font-family: "Inter", Helvetica;
+    font-size: 0.9rem;
+    font-weight: 600;
+    left: 0.9rem;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 2.5rem;
+    white-space: nowrap;
+  }
+  
+  .secondary-box .secondary-warning {
+    height: 4.3rem;
+    left: 11.7rem;
+    position: absolute;
+    top: 11.8rem;
+    width: 12rem;
+  }
+  
+  .secondary-box .secondary-overlap-4 {
+    height: 6.7rem;
+    position: relative;
+    top: -2.3rem;
+    width: 11.7rem;
+  }
+  
+  .secondary-box .secondary-text-wrapper-16 {
+    color: #ffffff;
+    font-family: "Inter", Helvetica;
+    font-size: 0.7rem;
+    font-weight: 600;
+    left: 3.3rem;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 5.6rem;
+    white-space: nowrap;
+  }
+  
+  .secondary-box .secondary-text-wrapper-17 {
+    color: #ffffff;
+    font-family: "Inter", Helvetica;
+    font-size: 0.9rem;
+    font-weight: 600;
+    left: 2.7rem;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 4.4rem;
+    white-space: nowrap;
+  }
+  
+  .secondary-box .secondary-woman-biking-medium {
+    height: 2.9rem;
+    left: 5rem;
+    position: absolute;
+    top: 3rem;
+    width: 2.9rem;
+  }
+  
+  .secondary-box .secondary-img {
+    height: 6.7rem;
+    left: 0.7rem;
+    position: absolute;
+    top: 0;
+    width: 10rem;
+  }
+  
+  .secondary-box .secondary-text-wrapper-18 {
+    color: #ffffff;
+    font-family: "Inter", Helvetica;
+    font-size: 0.9rem;
+    font-weight: 600;
+    left: 3.5rem;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 2.7rem;
+    white-space: nowrap;
+    width: 4.5rem;
+  }
+  
+  

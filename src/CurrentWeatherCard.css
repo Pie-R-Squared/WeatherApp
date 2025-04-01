@@ -1,0 +1,128 @@
+/*style for the main weather information*/
+
+.weather-card {
+    width: 100%;
+    margin-left: 2rem;
+    position: relative;
+    margin-top: -1rem;
+  }
+  
+  .background-image {
+    width: 100%;
+    flex-shrink: 0;
+    height: auto;
+    margin-bottom: 0em;
+    border-radius: 2.25rem;
+    margin-left: 1.1rem;
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0);
+  }
+  
+  .content {
+    position: absolute;
+    inset: 0;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .top-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  
+  #location-info h1 {
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-top: 2rem;
+    mask-image: none;
+
+  }
+  
+  .location-info p {
+    color: rgba(255, 255, 255, 0.9);
+    margin: 4px 0 0;
+    
+  }
+  
+  .condition p {
+    color: white;
+    font-size: 1.125rem;
+    font-weight: 500;
+    margin: 0;
+  }
+  
+  .middle-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 16px;
+  }
+  
+  
+  .daily-weather-icon #current-weather-icon{
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    animation: float 2s ease-in-out infinite;
+  }
+  
+  .temperature {
+    font-family: Inter;
+    font-size: 7.5rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    display: flex;
+    align-items: start;
+    background: linear-gradient(82deg, #FFF 0.87%, rgba(153, 153, 153, 0.00) 127.99%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .temperature span {
+    font-size: 2.5rem;
+    margin-top: 4px;
+    margin-left: 4px;
+  }
+  
+  .bottom-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 16px;
+  }
+  
+  .drops img {
+    width: 1rem;
+    height: 1rem;
+    flex-shrink: 0;
+    object-fit: contain;
+    margin-left: 12rem;
+    margin-bottom : -1em;
+  }
+  
+  .pressure-info {
+    text-align: right;
+    margin-left: 7rem;
+  }
+  
+  .pressure-info p {
+    color: white;
+    margin: 0;
+  }
+  
+  .pressure-info p:first-child {
+    font-size: 1.125rem;
+    font-weight: 500;
+  }
+  
+  .pressure-info p:last-child {
+    color: rgba(255, 255, 255, 0.9);
+  }
+  
+  
+  
