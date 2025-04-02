@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { ThemeContext } from ".//theme";
+import { ThemeContext } from "./theme";
 import { Link } from "react-router-dom";
 import axios from 'axios';
 import weatherWarning from "../src/images/title_rect.png";
@@ -10,6 +10,7 @@ import BikerIcon from "../src/images/biker.svg";
 import AiIcon from "../src/images/weather_ai_icon.svg";
 import CurrentWeatherIcon from "../src/images/partly_cloudy.svg";
 import safetyGuide from "../src/images/safety_guide.png";
+import Mode from './Mode';
 import WeatherAI from "./WeatherAI";
 import route from './images/route.png';
 import home from './images/home.png';
@@ -23,13 +24,24 @@ import settings from './images/settings.png';
     weather warnings, windspeed and visibility
 */
 function Warnings({children}) {
-    const { theme } = useContext(ThemeContext);
+    const [isDarkMode, setIsDarkMode] = useState(true);
+
+    useEffect(() => {
+        const intervalId = setInterval(() => {
+            const savedTheme = localStorage.getItem('theme');
+            if ((savedTheme === 'dark' && !isDarkMode) || (savedTheme === 'light' && isDarkMode)) {
+                setIsDarkMode(savedTheme === 'dark');
+            }
+        }, [isDarkMode]);
+
+        return () => clearInterval(intervalId);
+    }, [isDarkMode]);
 
     return (
         <div id="warnings">
             <h1>Weather warnings</h1>
             <img
-                src={theme === "dark" ? weatherWarning : weatherWarningLight} 
+                src={isDarkMode ? weatherWarning : weatherWarningLight} 
                 alt="weather-warning"
             />
             <div id="warning-data">
@@ -106,7 +118,6 @@ function ImagePanel({src, top, left}) {
             style={{
                 backgroundImage: `url(${src})`,
                 backgroundRepeat: "no-repeat",
-
                 ...(top !== undefined && left !== undefined
                     ? { top: `${top}px`, left: `${left}px`, position: "absolute" }
                     : {})
@@ -136,8 +147,6 @@ function TextPanel({top, left, className, width, children}) {
     return (
         <div className={`text-panel ${className || ""}`}
             style={{
-
-
                 maxWidth: `${width || 300}px`,
                 ...(top !== undefined && left !== undefined
                     ? { top: `${top}px`, left: `${left}px`, position: "absolute" }
@@ -251,16 +260,6 @@ export default function Weather() {
         }
     };*/
 
-
-    function handlePostcodeSearchChange(event) {
-        if (event.target.value.length > 8) {
-            return;
-        }
-        setPostcode(event.target.value.toUpperCase());
-    }
-
-
-
     function handleAiSearchChange(event) {
         setAiSearch(event.target.value);
     }
@@ -270,7 +269,7 @@ export default function Weather() {
 
         <div id="content">
 
-            <ThemeToggle />
+            <Mode />
 
             <Warnings>
                 <div className="warning-data-figures">
@@ -283,8 +282,10 @@ export default function Weather() {
                         )*/}5 km/h</p>
                         <h3>Wind Speed</h3>
                     </TextPanel>
-                    <ImagePanel src={visibility} top={255} left={324}/>
-                    <TextPanel top={280} left={180} className="centred">
+                </div>
+                <div className="warning-data-figures">
+                    <ImagePanel src={visibility}/>
+                    <TextPanel width={150} className="centred">
                         <p>
                             {/*weatherData.visibility ? (weatherData.visibility / 1000).toFixed(1) : "N/A"*/}1.0 km
                         </p>

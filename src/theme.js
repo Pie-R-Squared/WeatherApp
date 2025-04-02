@@ -13,10 +13,6 @@ export const Theme = ({children}) => {
 
     useEffect(() => {
         document.body.setAttribute("colour-mode", theme);
-        document.getElementById("repair-panel").setAttribute("colour-mode", theme);
-        document.getElementById("repair-search").setAttribute("colour-mode", theme);
-        document.getElementById("ai-search").setAttribute("colour-mode", theme);
-        document.getElementById("warnings").setAttribute("colour-mode", theme);
 
         document.querySelectorAll(".custom-bullets").forEach((element) => {
             element.setAttribute("colour-mode", theme);

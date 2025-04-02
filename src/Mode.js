@@ -27,9 +27,11 @@ const Mode =() =>{
         if (isDarkMode) {
           document.body.classList.add("dark");
           document.body.classList.remove("light");
+          document.body.setAttribute("colour-mode", "dark");
         } else {
           document.body.classList.add("light");
           document.body.classList.remove("dark");
+          document.body.setAttribute("colour-mode", "light");
         }
       }, [isDarkMode]);
     
