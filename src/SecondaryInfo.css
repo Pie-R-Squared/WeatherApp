@@ -8,6 +8,8 @@
     
   }
   
+
+  /*style for the main container of the weather info*/
   .secondary-box .secondary-info {
     height: 20rem;
     left: 0;
@@ -15,6 +17,7 @@
     width: 40rem;
   }
   
+  /*background color*/
   .secondary-box .secondary-overlap {
     background-color: #333333;
     border-radius: 2.75rem;
@@ -47,7 +50,9 @@
     top: 1rem;
     width: 10.5rem;
   }
-  
+
+
+  /*temperature text*/
   .secondary-box .secondary-text-wrapper {
     -webkit-background-clip: text !important;
     -webkit-text-fill-color: transparent;
@@ -68,6 +73,8 @@
     top: 0.05rem;
   }
   
+
+  /*sunset section*/
   .secondary-box .sunset {
     height: 2.8rem;
     left: 2rem;
@@ -117,6 +124,8 @@
     width: 8rem;
   }
   
+
+  /*sunrise section*/
   .secondary-box .secondary-text-wrapper-3 {
     color: #ffffff;
     font-family: "Inter", Helvetica;
@@ -150,6 +159,7 @@
     width: 2.9rem;
   }
   
+  /*humidity*/
   .secondary-box .secondary-humidity {
     height: 4.2rem;
     left: 26rem;
@@ -197,6 +207,8 @@
     white-space: nowrap;
   }
   
+
+  /*windspeed section*/
   .secondary-box .wind-speed {
     height: 4.2rem;
     left: 26rem;
@@ -261,7 +273,9 @@
     top: 0;
     width: 2.5rem;
   }
-  
+
+
+  /*percipitation*/
   .secondary-box .secondary-overlap-3 {
     height: 1.8rem;
     left: 0;
@@ -283,6 +297,8 @@
     white-space: nowrap;
   }
   
+
+  /*pressure section*/
   .secondary-box .secondary-pressure {
     height: 4.5rem;
     left: 32.5rem;
@@ -324,6 +340,8 @@
     white-space: nowrap;
   }
   
+
+  /*visibility section*/
   .secondary-box .secondary-visibility {
     height: 4.3rem;
     left: 33.5rem;
@@ -365,6 +383,8 @@
     white-space: nowrap;
   }
   
+
+  /*uv section*/
   .secondary-box .secondary-UV {
     height: 4.5rem;
     left: 33.4rem;
@@ -406,6 +426,8 @@
     white-space: nowrap;
   }
   
+
+  /* wind warning section*/
   .secondary-box .secondary-warning {
     height: 4.3rem;
     left: 11.7rem;
@@ -413,6 +435,7 @@
     top: 11.8rem;
     width: 12rem;
   }
+  
   
   .secondary-box .secondary-overlap-4 {
     height: 6.7rem;
@@ -447,11 +470,12 @@
     white-space: nowrap;
   }
   
+  
   .secondary-box .secondary-woman-biking-medium {
     height: 2.9rem;
     left: 5rem;
     position: absolute;
-    top: 3rem;
+    top: 6.5rem;
     width: 2.9rem;
   }
   
