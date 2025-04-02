@@ -105,6 +105,10 @@ body[colour-mode="light"] hr {
     margin: 0 0.5rem;
 }
 
+.warning-data-figures p, .warning-data-figures button {
+  margin: 10px;
+}
+
 .centred {
     text-align: center;
 }
@@ -140,14 +144,14 @@ h2 {
     display: grid;
     grid-area: navigation-tab;
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(6,1fr);
+    grid-template-rows: repeat(3,1fr);
     grid-template-areas: 'home'
                           'weather'
                           'route'
                           ;
                         
     width: 5.25rem;
-    height: 36.5625rem;
+    height: 16.5625rem;
     flex-shrink: 0;
     background-color: #333;
     border-radius: 3rem;
@@ -166,29 +170,6 @@ h2 {
     flex-shrink: 0;
     margin-bottom: 2rem;
     fill: #D9D9D9;
-}
-
-.navigation-tab p{
-    color: #D9D9D9;
-    font-size: 0.9rem;
-}
-
-.navigation-tab button{
-    border: none;
-    background: transparent;
-    cursor: pointer;
-}
-
-.navigation-item{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-    margin-bottom: 2rem;
-}
-
-.navigation-tab a{
-    text-decoration-line: none;
 }
 
 #home{
@@ -507,7 +488,7 @@ span {
 
 @media (max-width: 768px) {
 
-    .forecast-body{
+    #forecast-body{
         display: flex;
         justify-content: center;
         align-items: center;
@@ -531,6 +512,7 @@ span {
         width: 405px;
         height: 500px;
         border-radius: 60px;
+        box-sizing: border-box;
     }
 
     body[colour-mode="dark"] #warnings {
@@ -586,11 +568,10 @@ span {
         position: absolute;
         width: 300px;
         height: 500px;
-        top: 2000px;
-        left: 120px;
+        top: 100%;
+        left: 80%;
         background-image: url("images/temp_icon.png");
         background-repeat: no-repeat;
-        transform: scale(0.8);
         z-index: -1;
     }
        
@@ -613,6 +594,7 @@ body {
               #252525;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.2);
 }
+
 /*layout for page*/
 .container{
   display: grid;
@@ -625,10 +607,7 @@ body {
  
   height: 100vh;
   gap: 0.5rem;
-  
-
 }
-
 
 #search{
   grid-area: search;
@@ -676,47 +655,28 @@ body {
   background: transparent;
   filter: invert(70%);
 }
+
 /*layout for navigation bar*/
-.navigation-tab{
-  display: grid;
-  grid-area: navigation-tab;
-  grid-template-columns: 1fr;
-  grid-template-rows: repeat(3,1fr);
-  grid-template-areas: 'home'
-                        'weather'
-                        'route'
-                        ;
-                      
-  width: 5.25rem;
-  height: 34.5625rem;
-  flex-shrink: 0;
-  background-color: #333;
-  border-radius: 3rem;
-  box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.3);
-  margin-left: 2rem;
-  margin-top: 0rem;
-  
-  gap: 1rem;
-  place-items: center;
-}
+
 #route{
-  grid-area: route;
   width: 2.5rem;
   height: 2.2rem;
   flex-shrink: 0;
   margin-bottom: 2rem;
   fill: #D9D9D9;
 }
+
 .navigation-tab p{
   color: #D9D9D9;
   font-size: 0.9rem;
 }
+
 .navigation-tab button{
   border: none;
   background: transparent;
   cursor: pointer;
-  
 }
+
 .navigation-item{
   display: flex;
   flex-direction: column;
@@ -724,6 +684,16 @@ body {
   gap: 0.5rem;
   margin-bottom: 2rem;
 }
+
+.navigation-item:hover {
+  transform: scale(1.05);
+  border-radius: 2rem;
+}
+
+.navigation-item:hover img {
+  filter: brightness(0) saturate(100%) invert(30%) sepia(50%) saturate(300%) hue-rotate(270deg);
+}
+
 .navigation-tab a{
   text-decoration-line: none;
 }
@@ -734,9 +704,8 @@ body {
   width: 2rem;
   height: 2rem;
   flex-shrink: 0;
-  
-  
 }
+
 #home img{
   width: 2.575rem;
   height: 2.58rem;
@@ -744,12 +713,10 @@ body {
 }
 
 #weather{
-  
   grid-area: weather;
   width: 2.45575rem;
   height: 2.18881rem;
   flex-shrink: 0;
-  
 }
 
 
@@ -766,6 +733,7 @@ body {
   flex-shrink: 0;
   fill: #D9D9D9;
 }
+
 .mode p{
   color: #FFF;
   font-family: Inter;
@@ -776,6 +744,7 @@ body {
   padding: 0.1rem;
   margin-left: 1rem;
 }
+
 .switch-container {
   display: flex;
   flex-direction: column;
@@ -788,11 +757,13 @@ body {
   padding: 0.05rem;
   margin: 0.2rem
 }
+
 .switch-container input { 
   opacity: 0;
   width: 0;
   height: 1rem;
 }
+
 .slider {
   position: absolute;
   top: 0;
@@ -806,6 +777,7 @@ body {
   transition: 0.4s;
   padding: 1rem;
 }
+
 .slider:before {
   content: "";
   position: absolute;
@@ -818,11 +790,12 @@ body {
   border-radius: 50%;
   transition: 0.4s;
 }
- input:checked + .slider {
+
+input:checked + .slider {
   background-color: #dce8f2; 
 } 
 
- input:checked + .slider:before {
+input:checked + .slider:before {
   transform: translateX(2.7rem); 
 }  
 
@@ -839,8 +812,6 @@ body {
   font-style: normal;
   font-weight: 700;
   line-height: normal;
-  
-  
 }
 
 
@@ -849,9 +820,7 @@ body {
   grid-area: extra-weather;
   margin-top: -7rem;
   margin-left: 1rem;
-  padding-right: 2rem; 
-  
-
+  padding-right: 2rem;
 }
 
 /*style size hourly weather*/
@@ -873,24 +842,22 @@ body {
   flex-shrink: 0;
   align-content: center;
   justify-content: center;
-
 } 
 
 #day1{
   grid-area: day1;
-  
 }
+
 #day2{
   grid-area: day2;
- 
 }
+
 #day3{
   grid-area: day3;
-  
 }
+
 #day4{
   grid-area: day4;
- 
 } 
 
 .daily-weather-card{
@@ -908,8 +875,8 @@ body {
   align-content: space-between;
   justify-content: space-evenly;
   align-items: center;
-  
 }
+
 .daily-weather-card:nth-child(1){
   background-color: hsla(299, 36%, 46%, 1);
 }
@@ -920,7 +887,6 @@ body {
   margin-bottom: 2rem;
   width: 3rem;
   height: 3rem;
-
 }
 
 
@@ -933,8 +899,8 @@ body {
   font-weight: 600;
   line-height: normal;
   text-align: center;
-  
 }
+
 .date{
   color: #FFF;
   font-family: Inter;
@@ -944,22 +910,14 @@ body {
   line-height: normal;
   text-align: center;
   margin-top: 1.5rem;
-
 }
+
 .daily-weather-description{
   font-size: 0.9rem;
   text-align: center;
   color: #ffffff; 
   margin-top: -2rem;
 }
-
-
-
-
-
-
-
- 
 
 
 /*light modes*/
@@ -969,17 +927,16 @@ body.light {
   border: none;
 
 }
+
 .light .drops img{
   margin-bottom: 1.2rem;
 }
-
 
 .light #search{
   border-radius: 2.5rem;
   background: #A29898;
   box-shadow: 0px 2px 50px 0px rgba(0, 0, 0, 0.25);
 }
-
 
 .light .current-weather{
   border-radius: 1rem;
@@ -993,11 +950,7 @@ body.light {
   padding: 1rem;
 
   border-radius: 2rem;
-
-
-
 }
-
 
 .light .secondary-box .secondary-overlap {
   background-color: #A29898;
@@ -1030,9 +983,6 @@ body.light {
   background-color: hsla(299, 36%, 46%, 1);
 }
 
-
-
-
 /* Mobile Large */
 @media screen and (max-width: 768px) {
 .container {
@@ -1043,129 +993,119 @@ body.light {
     "extra-weather extra-weather"
     "daily-weather daily-weather"
     "hourly-weather hourly-weather";
-    grid-template-columns: auto auto;
-    grid-template-rows: auto auto auto auto auto auto;
-    gap: 3rem;
-    height: auto;
-    transform: scale(0.95);
-  }
-  .navigation-item{
-    transform: scale(0.9);
-    
-  }
-  .navigation-tab {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: 1fr;
-    grid-template-areas: 'home weather route';
-    max-height: 5.25rem;
-    max-width: 38rem;
-    width: auto;
-    margin-left: 2.5rem;
-    margin-top: -2rem;
-    transform: scale(0.96);
-    
-    
-  }
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto auto auto auto auto;
+  gap: 3rem;
+  height: auto;
+  transform: scale(0.95);
+}
 
-
-  .current-weather{
-    margin-left: 2rem;
-    
-  }
-  #search {
-    margin-left: 1.5rem;
-    margin-top: -2rem;
-    
-    
-    
-  }
-  .mode{
-    margin-left: -1.5rem;
-    transform: scale(0.9);
-    margin-top: -2rem;
-  }
-
-  .daily-weather {
-    grid-template-columns: 1fr 1fr 1fr 1fr; 
-    grid-template-areas: 'day1 day2 day3 day4';
-    gap: 1rem;
-    /* margin: 1rem auto; */
-    margin-left: -3rem;
-    width: 100%;
-    
-  }
-  .daily-weather-card{
-    width: 80%;
-    max-width: 7rem;
-    margin-left: 5rem;
-    gap: 0rem;
-    padding: 1rem;
+.navigation-item{
+  transform: scale(0.9);
   
-  }
+}
 
-  .navigation-tab {
-    display: grid;
-    grid-template-rows: 1fr;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-areas: 'home weather route';
-    max-width: 40rem;
-    max-height: 5rem;
-    margin-left: -3rem;
-    width: auto;
-    transform: scale(0.96) translate(10%, 0);
-    gap: 2rem;
-  }
-  
-  #route, #home, #weather {
-      width: 1.8rem;
-      height: 1.8rem;
-      transform: scale(0.8);
-  }
+.navigation-tab {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
+  grid-template-areas: 'home weather route';
+  max-height: 5.25rem;
+  max-width: 38rem;
+  width: auto;
+  margin-left: 2.5rem;
+  margin-top: -2rem;
+  transform: scale(0.96);
+}
 
-  #home {
-      margin-left: 1rem;
-  }
-    
-  .navigation-tab p {
-      font-size: 0.7rem;
-      margin: 0;
-      text-align: center;
-      vertical-align: middle;
-  }
-  .secondary-box,
-  .secondary-box .secondary-info,
-  .secondary-box .secondary-overlap {
-    width: auto;
-    max-width: 48.5rem;
-    height: auto;
-    min-height: 20rem;
-    margin-left: 1rem;
-    margin-top: -2rem;
-    transform: scale(1);
-    
-  }
+#content .navigation-tab {
+  margin: 1rem 0 0 1rem;
+  transform: scale(0.96) translateX(10%);
+  max-width: 15rem;
+  width: 100%;
+}
 
-  .secondary-box .secondary-text-wrapper {
-    font-size: 3rem;
-    left: 1rem;
-    
-    }
+#content #route, #content #home, #content #weather {
+  margin-right: 0.5rem;
+  margin-left: 0.5rem;
+  transform: scale(0.9);
+}
 
-  /* Repositioning elements for smaller screens */
-  .secondary-box .secondary-humidity,
-  .secondary-box .wind-speed,
-  .secondary-box .secondary-percipitation,
-  .secondary-box .secondary-pressure,
-  .secondary-box .secondary-visibility,
-  .secondary-box .secondary-UV {
-    position: relative;
-    left: auto;
-    top: auto;
-    margin: 0.5rem;
-  
-    display: inline-block;
-  }
+#content h1 {
+  top: 10rem;
+  max-width: 50%;
+}
+
+#content .text-panel, #content .image-panel, #content .warning-data-figures button {
+  margin-top: 1rem;
+}
+
+#content .mode {
+  margin-top: 1rem;
+}
+
+.current-weather{
+  margin-left: 2rem;
+}
+
+#search {
+  margin-left: 1.5rem;
+  margin-top: -2rem;
+}
+.mode{
+  margin-left: -1.5rem;
+  transform: scale(0.9);
+  margin-top: -2rem;
+}
+
+.daily-weather {
+  grid-template-columns: 1fr 1fr 1fr 1fr; 
+  grid-template-areas: 'day1 day2 day3 day4';
+  gap: 1rem;
+  /* margin: 1rem auto; */
+  margin-left: -3rem;
+  width: 100%;
+}
+
+.daily-weather-card{
+  width: 80%;
+  max-width: 7rem;
+  margin-left: 5rem;
+  gap: 0rem;
+  padding: 1rem;
+}
+
+
+.secondary-box,
+.secondary-box .secondary-info,
+.secondary-box .secondary-overlap {
+  width: auto;
+  max-width: 48.5rem;
+  height: auto;
+  min-height: 20rem;
+  margin-left: 1rem;
+  margin-top: -2rem;
+  transform: scale(1);
+}
+
+.secondary-box .secondary-text-wrapper {
+  font-size: 3rem;
+  left: 1rem;
+}
+
+/* Repositioning elements for smaller screens */
+.secondary-box .secondary-humidity,
+.secondary-box .wind-speed,
+.secondary-box .secondary-percipitation,
+.secondary-box .secondary-pressure,
+.secondary-box .secondary-visibility,
+.secondary-box .secondary-UV {
+  position: relative;
+  left: auto;
+  top: auto;
+  margin: 0.5rem;
+  display: inline-block;
+}
 
   .extra-weather {
     margin: 1rem 0;
@@ -1187,7 +1127,6 @@ body.light {
     grid-template-columns: 1fr 1fr;
     grid-template-areas: 
       "mode search"
-    
       "navigation-tab"
       "current-weather"
       "extra-weather"
@@ -1200,11 +1139,9 @@ body.light {
   }
 
   .navigation-tab {
-    
-    max-width: 50rem;
+    max-width: 20rem;
     max-height: 5rem;
     margin-left: 1rem;
-    
   }
 
   #route, #home, #weather {
@@ -1264,24 +1201,41 @@ body.light {
   .hourly-weather{
     margin-left: 7rem;
   }
-  .navigation-tab {
-    display: grid;
-    grid-template-rows: 1fr;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-areas: 'home weather route';
-    max-width: 40rem;
-    max-height: 5rem;
-    margin-left: -1rem;
-    width: auto;
-    transform: scale(0.96) translate(10%, 0);
-    gap: 2rem;
-  }
-  
-  #route, #home, #weather {
-      width: 1.8rem;
-      height: 1.8rem;
-      transform: scale(0.8);
-  }
+
+}
+
+.current-weather-icon{
+  width: 8rem;
+  height: 8rem;
+  margin-top: -2rem;
+  margin-left: -1rem;
+  margin-bottom: 0.5rem;
+}
+
+.secondary-weather-icon {
+  max-width: 8rem;
+  max-height: 8rem;
+  margin-left: 4rem;
+  margin-bottom: 1rem;
+
+    .navigation-tab {
+        display: grid;
+        grid-template-rows: 1fr;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas: 'home weather route';
+        max-width: 50rem;
+        max-height: 5rem;
+        margin-left: 1rem;
+        width: auto;
+        transform: scale(0.96) translate(10%, 0);
+        gap: 2rem;
+    }
+      
+    #route, #home, #weather {
+        width: 1.8rem;
+        height: 1.8rem;
+        transform: scale(0.8);
+    }
 
   #home {
       margin-left: 1rem;

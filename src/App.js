@@ -1,5 +1,3 @@
-
-
 import {  Route, Routes } from "react-router-dom";
 import Weather from './Components';
 import Home from "./Home";
