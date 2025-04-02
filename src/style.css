@@ -681,7 +681,7 @@ body {
   display: grid;
   grid-area: navigation-tab;
   grid-template-columns: 1fr;
-  grid-template-rows: repeat(6,1fr);
+  grid-template-rows: repeat(3,1fr);
   grid-template-areas: 'home'
                         'weather'
                         'route'
@@ -1043,113 +1043,141 @@ body.light {
     "extra-weather extra-weather"
     "daily-weather daily-weather"
     "hourly-weather hourly-weather";
-  grid-template-columns: auto auto;
-  grid-template-rows: auto auto auto auto auto auto;
-  gap: 3rem;
-  height: auto;
-  transform: scale(0.95);
-}
-.navigation-item{
-  transform: scale(0.9);
-  
-}
-.navigation-tab {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: 1fr;
-  grid-template-areas: 'home weather route';
-  max-height: 5.25rem;
-  max-width: 38rem;
-  width: auto;
-  margin-left: 2.5rem;
-  margin-top: -2rem;
-  transform: scale(0.96);
-  
-  
-}
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto auto auto auto auto;
+    gap: 3rem;
+    height: auto;
+    transform: scale(0.95);
+  }
+  .navigation-item{
+    transform: scale(0.9);
+    
+  }
+  .navigation-tab {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 1fr;
+    grid-template-areas: 'home weather route';
+    max-height: 5.25rem;
+    max-width: 38rem;
+    width: auto;
+    margin-left: 2.5rem;
+    margin-top: -2rem;
+    transform: scale(0.96);
+    
+    
+  }
 
 
-.current-weather{
-  margin-left: 2rem;
-  
-}
-#search {
-  margin-left: 1.5rem;
-  margin-top: -2rem;
-  
-  
-  
-}
-.mode{
-  margin-left: -1.5rem;
-  transform: scale(0.9);
-  margin-top: -2rem;
-}
+  .current-weather{
+    margin-left: 2rem;
+    
+  }
+  #search {
+    margin-left: 1.5rem;
+    margin-top: -2rem;
+    
+    
+    
+  }
+  .mode{
+    margin-left: -1.5rem;
+    transform: scale(0.9);
+    margin-top: -2rem;
+  }
 
-.daily-weather {
-  grid-template-columns: 1fr 1fr 1fr 1fr; 
-  grid-template-areas: 'day1 day2 day3 day4';
-  gap: 1rem;
-  /* margin: 1rem auto; */
-  margin-left: -3rem;
-  width: 100%;
+  .daily-weather {
+    grid-template-columns: 1fr 1fr 1fr 1fr; 
+    grid-template-areas: 'day1 day2 day3 day4';
+    gap: 1rem;
+    /* margin: 1rem auto; */
+    margin-left: -3rem;
+    width: 100%;
+    
+  }
+  .daily-weather-card{
+    width: 80%;
+    max-width: 7rem;
+    margin-left: 5rem;
+    gap: 0rem;
+    padding: 1rem;
   
-}
-.daily-weather-card{
-  width: 80%;
-  max-width: 7rem;
-  margin-left: 5rem;
-  gap: 0rem;
-  padding: 1rem;
- 
-}
+  }
 
-
-.secondary-box,
-.secondary-box .secondary-info,
-.secondary-box .secondary-overlap {
-  width: auto;
-  max-width: 48.5rem;
-  height: auto;
-  min-height: 20rem;
-  margin-left: 1rem;
-  margin-top: -2rem;
-  transform: scale(1);
+  .navigation-tab {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas: 'home weather route';
+    max-width: 40rem;
+    max-height: 5rem;
+    margin-left: -3rem;
+    width: auto;
+    transform: scale(0.96) translate(10%, 0);
+    gap: 2rem;
+  }
   
-}
+  #route, #home, #weather {
+      width: 1.8rem;
+      height: 1.8rem;
+      transform: scale(0.8);
+  }
 
-.secondary-box .secondary-text-wrapper {
-  font-size: 3rem;
-  left: 1rem;
+  #home {
+      margin-left: 1rem;
+  }
+    
+  .navigation-tab p {
+      font-size: 0.7rem;
+      margin: 0;
+      text-align: center;
+      vertical-align: middle;
+  }
+  .secondary-box,
+  .secondary-box .secondary-info,
+  .secondary-box .secondary-overlap {
+    width: auto;
+    max-width: 48.5rem;
+    height: auto;
+    min-height: 20rem;
+    margin-left: 1rem;
+    margin-top: -2rem;
+    transform: scale(1);
+    
+  }
+
+  .secondary-box .secondary-text-wrapper {
+    font-size: 3rem;
+    left: 1rem;
+    
+    }
+
+  /* Repositioning elements for smaller screens */
+  .secondary-box .secondary-humidity,
+  .secondary-box .wind-speed,
+  .secondary-box .secondary-percipitation,
+  .secondary-box .secondary-pressure,
+  .secondary-box .secondary-visibility,
+  .secondary-box .secondary-UV {
+    position: relative;
+    left: auto;
+    top: auto;
+    margin: 0.5rem;
   
-}
+    display: inline-block;
+  }
 
-/* Repositioning elements for smaller screens */
-.secondary-box .secondary-humidity,
-.secondary-box .wind-speed,
-.secondary-box .secondary-percipitation,
-.secondary-box .secondary-pressure,
-.secondary-box .secondary-visibility,
-.secondary-box .secondary-UV {
-  position: relative;
-  left: auto;
-  top: auto;
-  margin: 0.5rem;
- 
-  display: inline-block;
-}
+  .extra-weather {
+    margin: 1rem 0;
+    margin-left: -1.5rem;
+    padding-right: 0;
+    transform: scale(0.95);
+  }
 
-.extra-weather {
-  margin: 1rem 0;
-  margin-left: -1.5rem;
-  padding-right: 0;
-  transform: scale(0.95);
-}
-
-.hourly-weather {
-  margin-left: 4rem;
-  margin-top: 0rem;
-}
+  .hourly-weather {
+    margin-left: 4rem;
+    margin-top: 0rem;
+  }
 
 }
 
@@ -1236,6 +1264,35 @@ body.light {
   .hourly-weather{
     margin-left: 7rem;
   }
+  .navigation-tab {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas: 'home weather route';
+    max-width: 40rem;
+    max-height: 5rem;
+    margin-left: -1rem;
+    width: auto;
+    transform: scale(0.96) translate(10%, 0);
+    gap: 2rem;
+  }
+  
+  #route, #home, #weather {
+      width: 1.8rem;
+      height: 1.8rem;
+      transform: scale(0.8);
+  }
+
+  #home {
+      margin-left: 1rem;
+  }
+    
+  .navigation-tab p {
+      font-size: 0.7rem;
+      margin: 0;
+      text-align: center;
+      vertical-align: middle;
+  }
 
 }
 
@@ -1253,33 +1310,4 @@ body.light {
   margin-left: 4rem;
   margin-bottom: 1rem;
 
-    .navigation-tab {
-        display: grid;
-        grid-template-rows: 1fr;
-        grid-template-columns: repeat(6, 1fr);
-        grid-template-areas: 'home weather route';
-        max-width: 50rem;
-        max-height: 5rem;
-        margin-left: 1rem;
-        width: auto;
-        transform: scale(0.96) translate(10%, 0);
-        gap: 2rem;
-    }
-      
-    #route, #home, #weather {
-        width: 1.8rem;
-        height: 1.8rem;
-        transform: scale(0.8);
-    }
-
-    #home {
-        margin-left: 1rem;
-    }
-      
-    .navigation-tab p {
-        font-size: 0.7rem;
-        margin: 0;
-        text-align: center;
-        vertical-align: middle;
-    }
 }
