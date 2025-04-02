@@ -144,9 +144,6 @@ h2 {
     grid-template-areas: 'home'
                           'weather'
                           'route'
-                          'analysis'
-                          'calendar'
-                          'settings'
                           ;
                         
     width: 5.25rem;
@@ -192,28 +189,6 @@ h2 {
 
 .navigation-tab a{
     text-decoration-line: none;
-}
-
-#analysis{
-    grid-area: analysis;
-    width: 2.6875rem;
-    height: 2.6875rem;
-    flex-shrink: 0;
-}
-
-#settings{
-    grid-area: settings;
-    width: 2.875rem;
-    height: 2.75rem;
-    flex-shrink: 0;
-    padding-bottom: 1rem;
-}
-
-#calendar{
-    grid-area: calendar;
-    width: 2.8125rem;
-    height: 2.8125rem;
-    flex-shrink: 0;
 }
 
 #home{
@@ -710,9 +685,6 @@ body {
   grid-template-areas: 'home'
                         'weather'
                         'route'
-                        'analysis'
-                        'settings'
-                        'calendar'
                         ;
                       
   width: 5.25rem;
@@ -755,29 +727,7 @@ body {
 .navigation-tab a{
   text-decoration-line: none;
 }
-#analysis{
-  grid-area: analysis;
-  width: 2.6875rem;
-  height: 2.6875rem;
-  flex-shrink: 0;
-  
-}
-#settings{
-  grid-area: settings;
-  width: 2.875rem;
-  height: 2.75rem;
-  flex-shrink: 0;
-  
 
-}
-#calendar{
-  grid-area: calendar;
-  width: 2.8125rem;
-  height: 2.8125rem;
-  flex-shrink: 0;
-  
-  
-}
 #home{
   margin-top: 1rem;
   grid-area: home;
@@ -1107,7 +1057,7 @@ body.light {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: 1fr;
-  grid-template-areas: 'home weather route analysis settings calendar';
+  grid-template-areas: 'home weather route';
   max-height: 5.25rem;
   max-width: 38rem;
   width: auto;
@@ -1205,110 +1155,109 @@ body.light {
 
 /* Mobile Small */
 @media screen and (max-width: 480px) {
-.container {
-  grid-template-columns: 1fr 1fr;
-  grid-template-areas: 
-    "mode search"
+  .container {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+      "mode search"
+    
+      "navigation-tab"
+      "current-weather"
+      "extra-weather"
+      "daily-weather"
+      "hourly-weather";
+    padding: 0 0.25rem;
+    /* transform: scale(0.96); */
+    margin-left: 4rem;
+    gap: 3rem;
+  }
+
+  .navigation-tab {
+    
+    max-width: 50rem;
+    max-height: 5rem;
+    margin-left: 1rem;
+    
+  }
+
+  #route, #home, #weather {
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+
+  .navigation-tab p {
+    font-size: 0.7rem;
+  }
+
+  #search {
+    
+    border-radius: 1.5rem;
+    font-size: 0.9rem;
+    margin-left: 1rem;
+    margin-top: -1rem;
+  }
+
+  .daily-weather {
+    grid-template-columns: 1fr 1fr 1fr 1fr; 
+    grid-template-areas: 'day1 day2 day3 day4';
+    margin-left: 3rem;
+    transform: scale(0.8);
+  }
+
+  .daily-weather-card {
+    width: 100%;
+    max-width: 7rem;
   
-    "navigation-tab"
-    "current-weather"
-    "extra-weather"
-    "daily-weather"
-    "hourly-weather";
-  padding: 0 0.25rem;
-  /* transform: scale(0.96); */
-  margin-left: 4rem;
-  gap: 3rem;
+    margin: 0rem -3.5rem;
+    gap: 0rem;
+    padding: 0rem;
+  }
+
+  .secondary-box .secondary-text-wrapper {
+    font-size: 2.5rem;
+  }
+
+  .secondary-box .sunrise,
+  .secondary-box .sunset {
+    position: relative;
+    left: auto;
+    top: auto;
+    margin: 0.5rem;
+    display: block;
+  }
+  .secondary-box{
+    margin-left: 4rem;
+    transform: scale(1.1);
+    margin-top: 2rem;
+  }
+
+  .current-weather{
+    margin-left: 5rem;
+  }
+  .hourly-weather{
+    margin-left: 7rem;
+  }
+
 }
 
-.navigation-tab {
-  
-  max-width: 50rem;
-  max-height: 5rem;
-  margin-left: 1rem;
-  
-}
-
-#route, #analysis, #settings, #calendar, #home, #weather {
-  width: 1.8rem;
-  height: 1.8rem;
-}
-
-.navigation-tab p {
-  font-size: 0.7rem;
-}
-
-#search {
-  
-  border-radius: 1.5rem;
-  font-size: 0.9rem;
-  margin-left: 1rem;
-  margin-top: -1rem;
-}
-
-.daily-weather {
-  grid-template-columns: 1fr 1fr 1fr 1fr; 
-  grid-template-areas: 'day1 day2 day3 day4';
-  margin-left: 3rem;
-  transform: scale(0.8);
-}
-
-.daily-weather-card {
-  width: 100%;
-  max-width: 7rem;
- 
-  margin: 0rem -3.5rem;
-  gap: 0rem;
-  padding: 0rem;
-  
-}
-
-.secondary-box .secondary-text-wrapper {
-  font-size: 2.5rem;
-}
-
-.secondary-box .sunrise,
-.secondary-box .sunset {
-  position: relative;
-  left: auto;
-  top: auto;
-  margin: 0.5rem;
-  display: block;
-}
-.secondary-box{
-  margin-left: 4rem;
-  transform: scale(1.1);
-  margin-top: 2rem;
-}
-
-.current-weather{
-  margin-left: 5rem;
-}
-.hourly-weather{
-  margin-left: 7rem;
-}
-}
 .current-weather-icon{
   width: 8rem;
   height: 8rem;
   margin-top: -2rem;
   margin-left: -1rem;
   margin-bottom: 0.5rem;
-
-
 }
+
 .secondary-weather-icon {
   max-width: 8rem;
   max-height: 8rem;
   margin-left: 4rem;
   margin-bottom: 1rem;
 
-
     .navigation-tab {
         display: grid;
         grid-template-rows: 1fr;
         grid-template-columns: repeat(6, 1fr);
-        grid-template-areas: 'home weather route analysis calendar settings';
+        grid-template-areas: 'home weather route';
         max-width: 50rem;
         max-height: 5rem;
         margin-left: 1rem;
@@ -1317,7 +1266,7 @@ body.light {
         gap: 2rem;
     }
       
-    #route, #analysis, #settings, #calendar, #home, #weather {
+    #route, #home, #weather {
         width: 1.8rem;
         height: 1.8rem;
         transform: scale(0.8);
@@ -1325,10 +1274,6 @@ body.light {
 
     #home {
         margin-left: 1rem;
-    }
-
-    #settings {
-        margin-right: 1rem;
     }
       
     .navigation-tab p {

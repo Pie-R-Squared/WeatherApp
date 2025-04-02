@@ -16,9 +16,6 @@ import NavigationTab from './NavigationTab';
 import route from './images/route.png';
 import home from './images/home_icon.png';
 import forecast from './images/forecast.png';
-import analysis from './images/analysis.png';
-import calendar from './images/calendar.png';
-import settings from './images/settings.png';
 
 import search from './images/search.png';
 const Home = () => {
@@ -252,9 +249,6 @@ const Home = () => {
                             { id: 'home', icon: home, label: 'Home' },
                             { id: 'weather', icon: forecast, label: 'Weather' },
                             { id: 'route', icon: route, label: 'Route' },
-                            { id: 'analysis', icon: analysis, label: 'Analysis' },
-                            { id: 'calendar', icon: calendar, label: 'Calendar' },
-                            { id: 'settings', icon: settings, label: 'Settings' },
                             ].map((tab) => (
                             <NavigationTab key={tab.id} id={tab.id} icon={tab.icon} label={tab.label} />
                             ))}

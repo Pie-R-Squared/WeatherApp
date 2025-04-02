@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { ThemeContext } from "./theme";
 import { Link } from "react-router-dom";
 import axios from 'axios';
 import weatherWarning from "../src/images/title_rect.png";
@@ -15,9 +14,6 @@ import WeatherAI from "./WeatherAI";
 import route from './images/route.png';
 import home from './images/home.png';
 import forecast from './images/forecast.png';
-import analysis from './images/analysis.png';
-import calendar from './images/calendar.png';
-import settings from './images/settings.png';
 
 /*
     Warnings component which contains the title,
@@ -73,25 +69,6 @@ function NavigationTab({id, icon, label}){
 function Utility({value, children}) {
     return (
         <div id={value} className="utility">{children}</div>
-    );
-}
-
-/*
-    Toggle that allows switching between light
-    and dark mode
-*/
-function ThemeToggle() {
-    const { theme, toggle } = useContext(ThemeContext);
-
-    return (
-        <label className="switch">
-            <input type="checkbox" checked={theme === "light"} onChange={toggle} />
-            <span className="slider"></span>
-            <p>
-                {((localStorage.getItem("theme") || "dark").charAt(0).toUpperCase() + 
-                (localStorage.getItem("theme") || "dark").slice(1)) + " Mode"}
-            </p>
-        </label>
     );
 }
 
@@ -335,9 +312,6 @@ export default function Weather() {
                 { id: 'home', icon: home, label: 'Home' },
                 { id: 'weather', icon: forecast, label: 'Weather' },
                 { id: 'route', icon: route, label: 'Route' },
-                { id: 'analysis', icon: analysis, label: 'Analysis' },
-                { id: 'calendar', icon: calendar, label: 'Calendar' },
-                { id: 'settings', icon: settings, label: 'Settings' },
                 ].map((tab) => (
                 <NavigationTab key={tab.id} id={tab.id} icon={tab.icon} label={tab.label} />
                 ))}
