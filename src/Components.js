@@ -12,7 +12,7 @@ import safetyGuide from "../src/images/safety_guide.png";
 import Mode from './Mode';
 import WeatherAI from "./WeatherAI";
 import route from './images/route.png';
-import home from './images/home.png';
+import home from './images/home_icon.png';
 import forecast from './images/forecast.png';
 
 /*
