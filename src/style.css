@@ -28,7 +28,13 @@ body[colour-mode="light"] {
     "navigation-tab repair ai temp .";
     margin-left: auto;
     margin-right: auto;
-    transform: scale(min(100vw / 1200, 100vh / 800));
+    transform: scale(0.9);
+    transform-origin: top left;
+}
+
+#content .mode, #content .navigation-tab {
+    transform: scale(calc(1 / 0.9));
+    transform-origin: top left;
 }
 
 hr {

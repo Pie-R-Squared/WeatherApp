@@ -253,9 +253,9 @@ export default function Weather() {
                     <ImagePanel src={windSpeed}/>
                     <TextPanel width={150} className="centred">
                         <p>{weatherData ? (
-                            `${weatherData.wind?.speed ?? "N/A"} km/h`
+                            `${((weatherData.wind?.speed ?? 0) / 3.6).toFixed(2)} m/s`
                         ) : (
-                            "Loading weather data..."
+                            ""
                         )}</p>
                         <h3>Wind Speed</h3>
                     </TextPanel>
@@ -264,7 +264,7 @@ export default function Weather() {
                     <ImagePanel src={visibility}/>
                     <TextPanel width={150} className="centred">
                         <p>
-                            {weatherData.visibility ? (weatherData.visibility / 1000).toFixed(1) : "N/A"}
+                            {weatherData.visibility ? (weatherData.visibility).toFixed(1) : "N/A"}m
                         </p>
                         <h3>Visibility</h3>
                     </TextPanel>
@@ -362,14 +362,14 @@ export default function Weather() {
                 <h1>{ weatherData ? (
                     `${weatherData.main.temp.toFixed(1)}°`
                 ) : (
-                    "Loading weather data..."
+                    ""
                 )}</h1>
                 <TextPanel top={190} left={200}>
                     <p>Feels like <span>
                         { weatherData ? (
                             `${weatherData.main.feels_like.toFixed(1)}°`
                         ) : (
-                            "Loading weather data..."
+                            ""
                         )}</span></p>
                 </TextPanel>
                 <ImagePanel src={CurrentWeatherIcon} top={250} left={80}/>
