@@ -12,14 +12,17 @@ import './style.css';
 
 
 const RoutePlanner = () => {
+  // Set default city to London if not already set in localStorage
   const defaultCity = localStorage.getItem('city') || 'London';
   const [origin, setOrigin] = useState(defaultCity);
   const [destination, setDestination] = useState(defaultCity);
   
-
+  // handlers for input changes
   const handleOriginChange = (e) => setOrigin(e.target.value);
   const handleDestinationChange = (e) => setDestination(e.target.value);
 
+
+  //checklist items and toggle logic
   const checklistItems = [
     "Helmet Secured",
     "Lights Working",
@@ -42,11 +45,12 @@ const RoutePlanner = () => {
 
   return (
     <div className="container2">
-    
+        {/*informational images */}
 
         <img src = {emergencyinfo} alt = "emergencyinfo" className = "emergencyinfo" id = "emergencyinfo" />
         <img src = {safetytips} alt = "safetytips" className = "safetytips" id = "safetytips" />
 
+    {/*dark/light mode switch*/}
     <Mode />
 
       {/* Origin & Destination Form */}
@@ -77,7 +81,7 @@ const RoutePlanner = () => {
         </div>
       </form>
 
-      {/* Route Map Display */}
+      {/* Map showing biking route between origin and destination*/}
       {origin && destination && (
         <div id="map" className="map-container">
           <iframe title="Google Map Directions"
@@ -91,6 +95,9 @@ const RoutePlanner = () => {
           />
         </div>
       )}
+
+
+      {/* Quick Checklist with toggleable items */}
 
         <div className="checklist-card">
         <h2 className="checklist-title">Quick Checklist</h2>
