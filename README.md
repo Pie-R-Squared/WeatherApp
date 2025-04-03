@@ -104,7 +104,7 @@ To install all necessary dependencies, run the following commands in your termin
    ```sh
    node server.js
    ```
-5. Run the React application
+5. **In another terminal**, run the React application
    ```sh
    npm start
    ```
