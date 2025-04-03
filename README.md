@@ -80,8 +80,9 @@ Services the application offers includes:
 | `react-scripts`                   | `5.0.1`         |
 | `web-vitals`                      | `^2.1.4`        |
 
-To install all necessary dependencies, run the following command in your terminal
+To install all necessary dependencies, run the following commands in your terminal
    ```sh
+   npm install
    npm install axios
    ```
 
@@ -103,7 +104,7 @@ To install all necessary dependencies, run the following command in your termina
    ```sh
    node server.js
    ```
-5. Run the React application
+5. **In another terminal**, run the React application
    ```sh
    npm start
    ```
@@ -130,7 +131,7 @@ Download size: approx. 3.6MB
    ```sh
    node server.js
    ```
-6. Run the React application
+6. **In another terminal**, run the React application
    ```sh
    npm start
    ```
