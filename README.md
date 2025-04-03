@@ -80,8 +80,9 @@ Services the application offers includes:
 | `react-scripts`                   | `5.0.1`         |
 | `web-vitals`                      | `^2.1.4`        |
 
-To install all necessary dependencies, run the following command in your terminal
+To install all necessary dependencies, run the following commands in your terminal
    ```sh
+   npm install
    npm install axios
    ```
 

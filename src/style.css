@@ -16,7 +16,7 @@ body[colour-mode="light"] {
     background-color: #F5F4F4;
 }
 
-/* GRID SECTIONS */
+/* GRID SECTIONS FOR FORECAST PAGE */
 
 #content {
     display: grid;
@@ -37,6 +37,7 @@ body[colour-mode="light"] {
     transform-origin: top left;
 }
 
+/* DARK AND LIGHT THEME HORIZONTAL RULE */
 hr {
     border: 0;
     height: 1px;
@@ -58,10 +59,12 @@ body[colour-mode="light"] hr {
 /* TITLE */
 
 #warnings {
-    width: 86.875rem;
+    width: 90.875rem;
     height: 26.25rem;
     grid-area: warnings;
 }
+
+/* SAFETY GUIDE BUTTON */
 
 #warnings-guide {
     font-family: 'Roboto', sans-serif;
@@ -84,6 +87,8 @@ body[colour-mode="light"] hr {
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
     cursor: pointer;
 }
+
+/* WARNING DATA, WINDSPEED AND VISIBILITY PANELS */
 
 #warning-data {
     display: flex;
@@ -456,6 +461,8 @@ span {
 
 /* RESPONSIVE STYLING */
 
+/* LARGER DISPLAYS - PC */
+
 @media (max-width: 1400px) {
     #content {
         transform: scale(0.8);
@@ -481,6 +488,8 @@ span {
     }
 }
 
+/* MEDIUM DISPLAYS - TABLET */
+
 @media (max-width: 900px) {
     #content {
         transform: scale(0.5);
@@ -491,6 +500,8 @@ span {
         width: 125%;
     }
 }
+
+/* SMALLER DISPLAYS - MOBILE */
 
 @media (max-width: 768px) {
 

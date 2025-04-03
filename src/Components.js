@@ -175,6 +175,12 @@ export default function Weather() {
         }
     }
 
+    /*
+        Fetch the three nearest bicycle repair shops based
+        on the user's location, then print the returned
+        array to the console
+        Also returns the distance to each repair shop
+    */
     async function fetchRepairShops() {
         if (!postcode) {
             return;
@@ -190,20 +196,6 @@ export default function Weather() {
         } catch (error) {
             console.error("Error while fetching location data:", error);
         }
-    }
-
-    function getDistance(lat1, lon1, lat2, lon2) {
-        const R = 6371;
-        const dLat = ((lat2 - lat1) * Math.PI) / 180;
-        const dLon = ((lon2 - lon1) * Math.PI) / 180;
-        const a =
-            Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-            Math.cos((lat1 * Math.PI) / 180) *
-            Math.cos((lat2 * Math.PI) / 180) *
-            Math.sin(dLon / 2) *
-            Math.sin(dLon / 2);
-        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-        return R * c;
     }
 
     /*
@@ -241,6 +233,10 @@ export default function Weather() {
         setAiSearch(event.target.value);
     }
 
+    /*
+        React code containing all the components for the
+        Forecast page
+    */
     return (
         <div id="forecast-body">
 
@@ -293,8 +289,6 @@ export default function Weather() {
                     {!(weatherData.wind.speed > 6 || weatherData.visibility / 1000 < 5 || weatherData.rain?.["1h"]) && (
                         <>
                             <h3>No severe weather warnings</h3>
-                            <h3> - <span>Low wind</span> and <span>good visibility</span></h3>
-                            <h3> - <span>{weatherData.rain?.["1h"] ? `${Math.round(weatherData.rain["1h"] * 100)}% chance of light rain` : "No rain expected"}</span></h3>
                         </>
                     )}
                 </TextPanel>)
