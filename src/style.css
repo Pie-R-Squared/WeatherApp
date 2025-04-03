@@ -235,6 +235,10 @@ body[colour-mode="light"] .utility {
     position: relative;
 }
 
+#temp p {
+  margin-top: 1rem;
+}
+
 /* REPAIR PANEL */
 
 #repair-search {
@@ -567,7 +571,7 @@ span {
         display: none;
     }
 
-    h1 {
+    #warnings h1 {
         display: flex;
         flex-wrap: wrap;
         font-size: 2.5rem;
@@ -1073,6 +1077,10 @@ body.light {
 
 #content .mode {
   margin-top: 1rem;
+}
+
+#temp h1 {
+  top: 120px;
 }
 
 .current-weather{
