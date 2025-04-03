@@ -131,7 +131,7 @@ Download size: approx. 3.6MB
    ```sh
    node server.js
    ```
-6. Run the React application
+6. **In another terminal**, run the React application
    ```sh
    npm start
    ```
