@@ -65,7 +65,7 @@
   .checklist-card {
     position: absolute;
     top: 530px;          
-    right: 100px;         
+    right: 12rem;        
     background-color: #e5e5e5;
     padding: 1.5rem;
     border-radius: 1rem;
