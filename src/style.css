@@ -230,6 +230,10 @@ body[colour-mode="light"] .utility {
     position: relative;
 }
 
+#temp p {
+  margin-top: 1rem;
+}
+
 /* REPAIR PANEL */
 
 #repair-search {
@@ -456,6 +460,8 @@ span {
 
 /* RESPONSIVE STYLING */
 
+/* LARGER DISPLAYS - PC */
+
 @media (max-width: 1400px) {
     #content {
         transform: scale(0.8);
@@ -481,6 +487,8 @@ span {
     }
 }
 
+/* MEDIUM DISPLAYS - TABLET */
+
 @media (max-width: 900px) {
     #content {
         transform: scale(0.5);
@@ -491,6 +499,8 @@ span {
         width: 125%;
     }
 }
+
+/* SMALLER DISPLAYS - MOBILE */
 
 @media (max-width: 768px) {
 
@@ -749,6 +759,15 @@ body {
   line-height: normal;
   padding: 0.1rem;
   margin-left: 1rem;
+}
+
+/* DARK AND LIGHT THEME FOR MODE TEXT */
+
+body[colour-mode="dark"] .mode p{
+  color: #FFF;
+}
+body[colour-mode="light"] .mode p{
+  color: #333;
 }
 
 .switch-container {
