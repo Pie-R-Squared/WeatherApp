@@ -145,6 +145,13 @@ Cyclists can also choose to search for the nearest repair shops by typing a post
 
 <!-- ACCESSIBILITY FEATURES -->
 ## Accessibility Features
+
+### Homepage with light theme on tablet layout
+<image src="assets/home_responsive.png" alt="zip" width="300"/>
+
+### Forecast page with light theme on mobile layout
+<image src="assets/forecast_responsive.png" alt="zip" width="200"/>
+
 - Responsive application design, tailored to work well on both PCs and mobile devices
 - A toggle for switching between light and dark mode, at the top
 

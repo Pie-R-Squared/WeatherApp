@@ -210,7 +210,7 @@ export default function Weather() {
         Fetch user's exact location upon loading the page
         Retrieves the latitude and longitude
     */
-    /*useEffect(() => {
+    useEffect(() => {
         if ("geolocation" in navigator) {
             navigator.geolocation.getCurrentPosition(
                 async (position) => {
@@ -225,7 +225,7 @@ export default function Weather() {
         Fetches the weather data based on the user's location
         Displays an error if the API call fails
     */
-    /*const fetchLocationWeather = async (lat, lon) => {
+    const fetchLocationWeather = async (lat, lon) => {
         try {
             const response = await axios.get(
                 `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${"9b27abfa8280abdbc5b8674b42e31f07"}`
@@ -235,7 +235,7 @@ export default function Weather() {
         } catch (error) {
             console.error(error);
         }
-    };*/
+    };
 
     function handleAiSearchChange(event) {
         setAiSearch(event.target.value);
@@ -252,11 +252,11 @@ export default function Weather() {
                 <div className="warning-data-figures">
                     <ImagePanel src={windSpeed}/>
                     <TextPanel width={150} className="centred">
-                        <p>{/*weatherData ? (
+                        <p>{weatherData ? (
                             `${weatherData.wind?.speed ?? "N/A"} km/h`
                         ) : (
                             "Loading weather data..."
-                        )*/}5 km/h</p>
+                        )}</p>
                         <h3>Wind Speed</h3>
                     </TextPanel>
                 </div>
@@ -264,39 +264,41 @@ export default function Weather() {
                     <ImagePanel src={visibility}/>
                     <TextPanel width={150} className="centred">
                         <p>
-                            {/*weatherData.visibility ? (weatherData.visibility / 1000).toFixed(1) : "N/A"*/}1.0 km
+                            {weatherData.visibility ? (weatherData.visibility / 1000).toFixed(1) : "N/A"}
                         </p>
                         <h3>Visibility</h3>
                     </TextPanel>
                 </div>
-                {/* weatherData && (*/
+                { weatherData && (
                 <TextPanel width={600}>
-                    {/*<h3>Considerations:</h3>
-                    (weatherData.wind.speed > 6 || weatherData.visibility / 1000 < 5 || weatherData.rain?.["1h"]) ? (
-                        <>
-                            {weatherData.wind.speed > 6 && <h3> - <span>Strong winds</span> detected</h3>}
-                            {weatherData.visibility / 1000 < 5 && <h3> - <span>Poor visibility</span> conditions</h3>}
-                            {weatherData.rain?.["1h"] && (
-                                <h3> - <span>Heavy rain</span> expected ({Math.round(weatherData.rain["1h"] * 100)}% chance)</h3>
-                            )}
-                        </>
+                    <h3>Considerations:</h3>
+                    {weatherData.wind.speed > 6 ? (
+                        <h3> - <span>⚠️ Strong winds</span> detected</h3>
                     ) : (
+                        <h3> - <span>Low wind</span> conditions</h3>
+                    )}
+
+                    {weatherData.visibility / 1000 < 5 ? (
+                        <h3> - <span>⚠️ Poor visibility</span> conditions</h3>
+                    ) : (
+                        <h3> - <span>Good visibility</span> conditions</h3>
+                    )}
+
+                    {weatherData.rain?.["1h"] ? (
+                        <h3> - <span>⚠️ Heavy rain</span> expected ({Math.round(weatherData.rain["1h"] * 100)}% chance)</h3>
+                    ) : (
+                        <h3> - <span>No rain</span> expected</h3>
+                    )}
+
+                    {!(weatherData.wind.speed > 6 || weatherData.visibility / 1000 < 5 || weatherData.rain?.["1h"]) && (
                         <>
                             <h3>No severe weather warnings</h3>
                             <h3> - <span>Low wind</span> and <span>good visibility</span></h3>
                             <h3> - <span>{weatherData.rain?.["1h"] ? `${Math.round(weatherData.rain["1h"] * 100)}% chance of light rain` : "No rain expected"}</span></h3>
                         </>
-                    )*/}
-                    <h3>Consider travelling before 7pm:</h3>
-                    <h3> - 
-                        <span> Strong winds</span> and
-                        <span> poor visibility</span> will be common after 7pm
-                    </h3>
-                    <h3> - 
-                        <span> Heavy rain</span> may follow (60% chance)
-                    </h3>
-                </TextPanel>
-                /*)*/}
+                    )}
+                </TextPanel>)
+                }
                 <div className="warning-data-figures">
                     <TextPanel width={250}>
                         In case of severe weather warnings, please see our guide on how to ride safely, below:
@@ -347,14 +349,6 @@ export default function Weather() {
                 <hr/>
                 <TextPanel top={120} left={50}>
                     <WeatherAI prompt={aiSearch} weatherData={weatherData} triggerAI={triggerAI} />
-                    {/*<p>
-                        Welcome to your personal <span>Weather AI</span>!
-                    </p>
-                    <p>
-                        You can ask things like:
-                        <span> how warm should I dress today?</span> or
-                        <span> Is it safe to be cycling tonight?</span>
-                    </p>*/}
                 </TextPanel>
                 <ImagePanel src={AiIcon} top={250} left={160}/>
                 <Searchbar value="ai-search">
@@ -365,18 +359,18 @@ export default function Weather() {
             <Utility value="temp">
                 <Subheading text="Today's Temperature"/>
                 <hr/>
-                <h1>{/* weatherData ? (
+                <h1>{ weatherData ? (
                     `${weatherData.main.temp.toFixed(1)}°`
                 ) : (
                     "Loading weather data..."
-                )*/}25°</h1>
+                )}</h1>
                 <TextPanel top={190} left={200}>
                     <p>Feels like <span>
-                        { /*weatherData ? (
+                        { weatherData ? (
                             `${weatherData.main.feels_like.toFixed(1)}°`
                         ) : (
                             "Loading weather data..."
-                        )*/}15°</span></p>
+                        )}</span></p>
                 </TextPanel>
                 <ImagePanel src={CurrentWeatherIcon} top={250} left={80}/>
             </Utility>
