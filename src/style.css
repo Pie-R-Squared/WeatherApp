@@ -999,6 +999,11 @@ body.light {
   height: auto;
   transform: scale(0.95);
 }
+.current-weather #location-info h1 {
+  margin-top: -2rem;
+
+}
+
 
 .navigation-item{
   transform: scale(0.9);
@@ -1136,7 +1141,11 @@ body.light {
     /* transform: scale(0.96); */
     margin-left: 4rem;
     gap: 3rem;
+  }.current-weather #location-info h1 {
+    margin-top: -2rem;
+
   }
+
 
   .navigation-tab {
     max-width: 20rem;
