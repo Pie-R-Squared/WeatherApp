@@ -1,10 +1,10 @@
 
 
 .map-container{
-    width: 723px;
-    height: 635px;
+    width: 600px;
+    height: 500px;
     top: 275px;
-    left: 285px;
+    left: 230px;
     position:absolute
   }
   
@@ -25,7 +25,7 @@
     align-items: center;      
     gap: 1rem;                
     position: absolute;
-    left:500px;
+    left:400px;
     top: 0px;
     size: 0px 0px;
     
@@ -64,13 +64,13 @@
   
   .checklist-card {
     position: absolute;
-    top: 610px;          
-    right: 170px;         
+    top: 530px;          
+    right: 100px;         
     background-color: #e5e5e5;
     padding: 1.5rem;
     border-radius: 1rem;
-    height:250px;
-    width: 400px;
+    height:240px;
+    width: 390px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
     z-index: 10;
   }
@@ -116,16 +116,16 @@
   }
   
   .emergencyinfo{
-    top: 400px;
+    top: 340px;
     position:absolute;
-    left:1325px;
+    left:900px;
     border-radius: 1.5rem;
   }
   
   .safetytips{
-    top: 50px;
+    top: 10px;
     position:absolute;
-    left:1325px;
+    left:900px;
     border-radius: 2rem;
   }
   
