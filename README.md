@@ -66,16 +66,24 @@ Services the application offers includes:
    - Samsung: version 27
   
 ## Dependencies
-   - @testing-library/jest-dom: 5.17.0
-   - @testing-library/react: ^13.4.0
-   - @testing-library/user-event: ^13.5.0
-   - axios: ^1.7.9
-   - cors: ^2.8.5
-   - react: ^18.2.0
-   - react-dom: ^18.2.0
-   - react-router-dom: ^7.4.0
-   - react-scripts: 5.0.1
-   - web-vitals: ^2.1.4
+
+| **Package**                      | **Version**     |
+|-----------------------------------|-----------------|
+| `@testing-library/jest-dom`       | `5.17.0`        |
+| `@testing-library/react`          | `^13.4.0`       |
+| `@testing-library/user-event`     | `^13.5.0`       |
+| `axios`                           | `^1.7.9`        |
+| `cors`                            | `^2.8.5`        |
+| `react`                           | `^18.2.0`       |
+| `react-dom`                       | `^18.2.0`       |
+| `react-router-dom`                | `^7.4.0`        |
+| `react-scripts`                   | `5.0.1`         |
+| `web-vitals`                      | `^2.1.4`        |
+
+To install all necessary dependencies, run the following command in your terminal
+   ```sh
+   npm install axios
+   ```
 
 ## App Installation
 
