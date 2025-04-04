@@ -162,7 +162,7 @@ There are also safety tips provided to help cyclists prepare for journeys using 
 
 | Homepage (Tablet, Light Mode) | Forecast (Mobile, Light Mode) | Routes (Mobile, Dark Mode) |
 |------------------------------------------|-------------------------------------------|-----------------------------------------|
-| <image src="assets/home_responsive.png" alt="zip" width="300"/> | <image src="assets/forecast_responsive.png" alt="zip" width="200"/> | <image src="assets/forecast_responsive.png" alt="zip" width="200"/> |
+| <image src="assets/home_responsive.png" alt="zip" width="300"/> | <image src="assets/forecast_responsive.png" alt="zip" width="200"/> | <image src="assets/routes_responsive.png" alt="zip" width="200"/> |
 
 ### Forecast page with light theme on mobile layout
 <image src="assets/forecast_responsive.png" alt="zip" width="200"/>
