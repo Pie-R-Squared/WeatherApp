@@ -164,12 +164,6 @@ There are also safety tips provided to help cyclists prepare for journeys using 
 |------------------------------------------|-------------------------------------------|-----------------------------------------|
 | <image src="assets/home_responsive.png" alt="zip" width="300"/> | <image src="assets/forecast_responsive.png" alt="zip" width="200"/> | <image src="assets/routes_responsive.png" alt="zip" width="200"/> |
 
-### Forecast page with light theme on mobile layout
-<image src="assets/forecast_responsive.png" alt="zip" width="200"/>
-
-### Routes page with dark theme on mobile layout
-<image src="assets/forecast_responsive.png" alt="zip" width="200"/>
-
 - Responsive application design, tailored to work well on both PCs and mobile devices
 - A toggle for switching between light and dark mode, at the top
 
