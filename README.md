@@ -162,6 +162,9 @@ Cyclists can also choose to search for the nearest repair shops by typing a post
 ### Forecast page with light theme on mobile layout
 <image src="assets/forecast_responsive.png" alt="zip" width="200"/>
 
+### Routes page with dark theme on mobile layout
+<image src="assets/forecast_responsive.png" alt="zip" width="200"/>
+
 - Responsive application design, tailored to work well on both PCs and mobile devices
 - A toggle for switching between light and dark mode, at the top
 
