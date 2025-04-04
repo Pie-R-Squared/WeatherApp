@@ -233,6 +233,10 @@ export default function Weather() {
         setAiSearch(event.target.value);
     }
 
+    /*
+        React code containing all the components for the
+        Forecast page
+    */
     return (
         <div id="forecast-body">
 
