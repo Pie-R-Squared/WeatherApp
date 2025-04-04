@@ -150,14 +150,19 @@ Using the navigation tab on the left, navigate to either the Forecast or Route p
 
 Cyclists can also choose to search for the nearest repair shops by typing a postcode, which provides the three nearest ones and their distances. A simple Weather AI has also been implemented to accept prompts related to the weather and respond with some helpful advice. Finally, the last panel gives an overview of today's temperature and what it feels like.
 
-<!-- INSERT ROUTES DETAILS HERE -->
+![routes page 2](assets/routes_page.png)
+
+The routes page allows users to enter a start and destination point, displaying a helpful map to aid their decisions. The map has a zoom feature for easier viewing, and users can drag to move the map around. The generated route is the optimal route for cyclists, showing the distance and estimated time to take it.
+
+There are also safety tips provided to help cyclists prepare for journeys using adequate gear, along with information for emergency services in case of an accident. To make preparation effective, users can utilise an interactive checklist for ensuring they follow correct safety protocols. These features aim to help cyclists stay safe on the streets by informing them of the best practices.
 
 
 <!-- ACCESSIBILITY FEATURES -->
 ## Accessibility Features
 
-### Homepage with light theme on tablet layout
-<image src="assets/home_responsive.png" alt="zip" width="300"/>
+| Homepage (Tablet, Light Mode) | Forecast (Mobile, Light Mode) | Routes (Mobile, Dark Mode) |
+|------------------------------------------|-------------------------------------------|-----------------------------------------|
+| <image src="assets/home_responsive.png" alt="zip" width="300"/> | <image src="assets/forecast_responsive.png" alt="zip" width="200"/> | <image src="assets/forecast_responsive.png" alt="zip" width="200"/> |
 
 ### Forecast page with light theme on mobile layout
 <image src="assets/forecast_responsive.png" alt="zip" width="200"/>
