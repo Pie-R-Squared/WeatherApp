@@ -146,6 +146,10 @@ Search for a place for which you want to get the weather data for, using the sea
 
 Using the navigation tab on the left, navigate to either the Forecast or Route pages. The Forecast (or Weather) page informs users of the windspeed and visibility conditions, offering some advice on what they mean for travel. To ensure cyclists are travelling safely, particularly at times of heavy rain or wind, we have provided a downloadable safety guide.
 
+![forecast page 2](assets/forecast_page.png)
+
+Cyclists can also choose to search for the nearest repair shops by typing a postcode, which provides the three nearest ones and their distances. A simple Weather AI has also been implemented to accept prompts related to the weather and respond with some helpful advice. Finally, the last panel gives an overview of today's temperature and what it feels like.
+
 ![routes page 2](assets/routes_page.png)
 
 The routes page allows users to enter a start and destination point, displaying a helpful map to aid their decisions. The map has a zoom feature for easier viewing, and users can drag to move the map around. The generated route is the optimal route for cyclists, showing the distance and estimated time to take it.

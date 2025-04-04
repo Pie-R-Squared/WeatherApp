@@ -1,0 +1,231 @@
+
+
+.map-container{
+    width: 600px;
+    height: 500px;
+    top: 275px;
+    left: 230px;
+    position:absolute
+  }
+  
+  .map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 2rem; 
+  }
+  
+  
+  .search-fields {
+    background-image: none !important;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;  
+    align-items: center;      
+    gap: 1rem;                
+    position: absolute;
+    left:400px;
+    top: 0px;
+    size: 0px 0px;
+    
+  }
+  
+  
+  .route-bar {
+    width: 200%;
+    height: 105%;
+    padding: 0.8rem 1.5rem;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 2rem;
+    color: white;
+    background-color: rgba(158, 74, 159, 0.55);
+    backdrop-filter: blur(10px);
+    text-align: center;
+    left:-145px;
+    position: relative;
+    top:-15px;
+  
+  }
+  
+  .navigation-tab{
+    top:350px;
+    position: absolute;
+  }
+  
+  
+  
+  .checklist-card .checklist-title {
+  
+    color: #9E4A9F;
+  
+  }
+  
+  .checklist-card {
+    position: absolute;
+    top: 530px;          
+    right: 12rem;        
+    background-color: #e5e5e5;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    height:240px;
+    width: 390px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+    z-index: 10;
+  }
+  
+  .checklist-title {
+    font-size: 1.5rem;
+    font-weight: 900;
+    text-align: center;
+    margin-bottom: 1rem;
+    position:relative;
+    top:-10px;
+    left: -75px;
+  
+  }
+  
+  .checklist-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    top:5px;
+    position:relative
+  }
+  
+  .checklist-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 0.75rem;
+    cursor: pointer;
+  }
+  
+  .tick-icon {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    transition: opacity 0.2s ease;
+  }
+  
+  .tick-icon.hidden {
+    opacity: 0.15;
+  }
+  
+  .emergencyinfo{
+    top: 340px;
+    position:absolute;
+    left:900px;
+    border-radius: 1.5rem;
+  }
+  
+  .safetytips{
+    top: 10px;
+    position:absolute;
+    left:900px;
+    border-radius: 2rem;
+  }
+  
+  
+    @media (max-width: 768px) {
+    .container2 {
+      display: flex !important;
+      flex-direction: column;
+      width: 100%;
+      padding: 1rem;
+      gap: 2rem;
+    }  
+
+    .mode {
+        margin-top: 0.02rem;
+    }
+  
+    .search-fields {
+        height: 300px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;  
+        align-items: center;      
+        gap: 1rem;                
+        position: relative;
+        left:-122.5px;
+        top: -450px;
+      }
+  
+    .route-bar {
+      width: 100%; 
+      max-width: 600px; 
+      border-radius: 2rem;
+      text-align: center;
+      padding: 0.8rem 1.5rem;
+      font-size: 1.1rem;
+      background-color: rgba(158, 74, 159, 0.55);
+      backdrop-filter: blur(10px);
+      color: white;
+      border: none;
+      left: -800px;
+      position: absolute;
+    }
+  
+    .navigation-tab,
+    .search-fields,
+    .map-container,
+    .checklist-card,
+    .safetytips,
+    .emergencyinfo {
+      width: 90%;
+      margin: 0 auto;
+      position: static;
+      align-items: center;
+    }
+  
+    
+    .navigation-tab { order: 2; }
+    .search-fields { order: 3; }
+    .map-container { order: 4; }
+    .checklist-card { order: 5; }
+    .safetytips { order: 6; }
+    .emergencyinfo { order: 7; }
+  
+    .checklist-title {
+      align-items: center;
+    }
+  
+    .route-bar {
+      width: 100%;
+      position: static;
+      margin-top: 1rem;
+    }
+  
+    .map-container iframe {
+      width: 100%;
+      height: auto;
+      border-radius: 1rem;
+    }
+  
+    .navigation-tab {
+      flex-direction: row;
+      justify-content: space-around;
+  
+      .map-container {
+        aspect-ratio: 1 / 1; 
+        width: 90%;
+        margin: 0 auto;
+        border-radius: 1rem;
+        overflow: hidden;
+      }
+    
+      .map-container iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+        border-radius: 1rem;
+      }
+    } 
+  
+}
+   
+  
